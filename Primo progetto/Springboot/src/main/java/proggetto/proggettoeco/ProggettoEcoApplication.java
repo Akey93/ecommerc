@@ -1,0 +1,13 @@
+package proggetto.proggettoeco;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ProggettoEcoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProggettoEcoApplication.class, args);
+	}
+
+}
