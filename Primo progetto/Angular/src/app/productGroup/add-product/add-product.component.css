@@ -1,0 +1,50 @@
+.errori {
+    color: red;
+}
+
+h1 {
+    color: darkorange;
+}
+
+.leggenda {
+    color: white;
+}
+
+.prodotto {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#171738, #2E1760);
+
+}
+.container{
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    padding: 1em;
+}
+.div-error{
+    height: 3em;
+}
+.disabled{
+    background-color:black;
+}
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+
+

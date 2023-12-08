@@ -1,0 +1,78 @@
+
+.position {
+    position: sticky;
+    top:0px;
+    justify-content: space-between;
+    display: flex;
+    animation: backgroundMove 10s linear infinite;
+    inline-size: -webkit-fill-available;
+  
+   
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-color:#171738;
+    }
+
+    25% {
+        background-color: #2E1760;
+    }
+
+    50% {
+        background-color:#006992;
+    }
+
+    75% {
+        background-color: #2E1760;
+    }
+
+    100% {
+        background-color:#171738;
+    }
+}
+.titolo{
+    flex-grow:1;
+    padding: 1em;
+    align-self: center;
+    font-size: 2em;
+}
+.search{
+    border-radius: 2em;
+    flex-grow:1;
+    text-align: center;
+    align-self: center;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: inherit;
+}
+
+.routerLink{
+    flex-grow: 1;
+    place-self: center;
+}
+.LunSol{
+    text-decoration: none;
+    color:#eee;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--text-clr), 0 5px var(--primary-clr) ;
+    transition: all 0.2s ease-in-out;
+}
+.LunSol:hover{
+    color:#03e9f4 ;
+    text-shadow: 0 0 10px var(--text-clr), 0 5px var(--primary-clr) ;
+}
+.mat-icon:hover{
+    color :#03e9f4;
+    transition: .5s 
+}
+

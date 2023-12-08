@@ -1,0 +1,23 @@
+.carta{
+    background-color: rgb(237, 191, 122);
+    inline-size: fit-content;
+    border-radius: 0.5em;
+    color:grey;
+    display: flex;
+    flex-direction: column;
+    height: 15em;
+    justify-content: space-around;
+    margin: 2em;
+  
+}
+.carta:hover{
+    color: black;
+    background-color: rgb(243, 177, 90);
+    transition: 0.5s;
+}
+.quantitaN{
+    width: 2em;
+    border-radius: 2em;
+    background-color: rgb(116, 58, 58);
+
+}

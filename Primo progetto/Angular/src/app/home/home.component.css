@@ -1,0 +1,7 @@
+div{
+    color:red;
+}
+.carteProdotto{
+    display: flex;
+    flex-wrap: wrap;
+}

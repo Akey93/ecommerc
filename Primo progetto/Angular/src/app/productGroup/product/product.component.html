@@ -1,0 +1,9 @@
+<div class="carta">
+    <p class="nome">Nome: {{product.nameProduct}}</p>
+    <p class="price">Prezzo: {{product.price}}€</p>
+    
+    <p class="quantita">Quantità disponibile: {{product.quantity}}
+         <input [formControl]="quantity"  class="quantitaN"  type="number" min=1  max="{{product.quantity}}" ></p>
+        
+        <button (click)="cartP(quantity)">Aggiungi al carrello!!</button>
+</div>

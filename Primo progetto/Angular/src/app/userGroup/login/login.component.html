@@ -1,0 +1,24 @@
+<div class="login-box">
+  <!-- to do refactor in reactive form -->
+    <h2>Login</h2>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+      <div class="user-box">
+        <input type="email" required ngModel name="email">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="password"  required ngModel name="password">
+        <label>Password</label>
+      </div>
+      <button>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </button>
+      <h4> Se non sei ancora registrato 
+        <a  routerLink="/signup">Clicca qui!</a>
+    </h4>
+    </form>
+  </div>
