@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, numberAttribute } from '@angular/core';
 import { DtoProduct, Product } from '../../dTypes';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ProductService } from '../productService/product.service';
 
 
