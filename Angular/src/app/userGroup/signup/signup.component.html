@@ -1,29 +1,29 @@
 <div class="login-box">
     <h2>Registrazione</h2>
-    <form #sellerSignUp="ngForm" (ngSubmit)="signup(sellerSignUp.value)">
-        <div class="user-box">
-            <input type="text" required ngModel name="firstName">
-            <label>Nome</label>
-        </div>
-        <div class="user-box">
-            <input type="text" required ngModel name="surname">
-            <label>Cognome</label>
-        </div> 
-         <div class="user-box">
-            <input type="password" required ngModel name="password">
-            <label>Password</label>
-        </div>
-        <div class="user-box">
-            <input type="email" required ngModel name="email">
-            <label>Email</label>
-        </div>
-      
-        <button >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Sign up!
-        </button>
+    <form [formGroup]="sellerSignUp" (ngSubmit)="signup()">
+      <div class="user-box">
+        <input type="text" formControlName="firstName">
+        <label>Nome</label>
+      </div>
+      <div class="user-box">
+        <input type="text" formControlName="surname">
+        <label>Cognome</label>
+      </div>
+      <div class="user-box">
+        <input type="password" formControlName="password">
+        <label>Password</label>
+      </div>
+      <div class="user-box">
+        <input type="email" formControlName="email">
+        <label>Email</label>
+      </div>
+  
+      <button type="submit">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Sign up!
+      </button>
     </form>
-</div>
+  </div>

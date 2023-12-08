@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../productService/product.service';
+import { ThemePalette } from '@angular/material/core';
 
 
 
@@ -10,6 +11,8 @@ import { ProductService } from '../productService/product.service';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit{
+
+  colorControl = new FormControl('primary' as ThemePalette);
 
   productForm:FormGroup;
 

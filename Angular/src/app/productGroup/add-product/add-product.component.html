@@ -19,12 +19,12 @@
                         numeri
                     </div>
                 </div>
-                <mat-form-field floatLabel="always">
+                <!-- <mat-form-field floatLabel="always">
                     <mat-label>Amount</mat-label>
                     <input matInput type="number" class="example-right-align" placeholder="0">
                     <span matTextPrefix>€&nbsp;</span>
                     <span matTextSuffix></span>
-                  </mat-form-field>
+                  </mat-form-field> -->
                 <!-- <div class="div-error">
                     <input class="form-input" type="number" formControlName="price"
                         placeholder="Inserisci il prezzo del singolo prodotto">
@@ -32,21 +32,21 @@
                         inserisci un numero maggiore di 0
                     </div>
                 </div> -->
-               <!--  <mat-form-field [color]="colorControl.value!">
+                <!-- <mat-form-field [color]="colorControl.value!">
                     <mat-label>Color</mat-label>
                     <mat-select [formControl]="colorControl">
                       <mat-option value="primary">Primary</mat-option>
                       <mat-option value="accent">Accent</mat-option>
-                      <mat-option value="warn">Warn</mat-option>
+                      <mat-option value="warn" *ngFor="">Warn</mat-option>
                     </mat-select>
                   </mat-form-field> -->
-                <!-- <div class="div-error">
+                <div class="div-error">
                     <input class="form-input" type="number" formControlName="quantity"
                         placeholder="inserisci la quantità del prodotto">
                     <div class="errori" *ngIf="productForm.get('quantity')!.errors!=null">
                         inserisci un numero maggiore di 0
                     </div>
-                </div> -->
+                </div>
                 <div class="div-error">
                     <input class="form-input" type="text" formControlName="type" placeholder="Inserisci il tipo">
                     <div class="errori" *ngIf="productForm.get('type')!.errors!=null">

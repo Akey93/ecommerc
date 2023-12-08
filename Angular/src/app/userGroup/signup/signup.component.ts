@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../userService/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -9,13 +10,25 @@ import { UserService } from '../userService/user.service';
 })
 
 export class SignupComponent implements OnInit {
-  constructor(private userService:UserService){
+
+  sellerSignUp: FormGroup = new FormGroup({});
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {
   }
   ngOnInit(): void {
-    this.userService.reload();
+    this.sellerSignUp = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      surname: ['', Validators.required],
+      password: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
   }
-  signup(data: object): void {
-    console.warn(data);
-    this.userService.signUp(data);
+  signup(): void {
+    if (this.sellerSignUp.valid) {
+      let data: any = this.sellerSignUp.value;
+
+      console.warn(data);
+      this.userService.signUp(data);
+    }
   }
 }

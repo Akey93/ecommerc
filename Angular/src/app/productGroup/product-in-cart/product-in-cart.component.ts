@@ -1,7 +1,7 @@
 import { Component, Input,  OnInit } from '@angular/core';
 import { DtoProduct, ProductInCart } from '../../dTypes';
 import { ProductService } from '../productService/product.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-in-cart',

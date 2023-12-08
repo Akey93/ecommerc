@@ -1,13 +1,13 @@
 <div class="login-box">
-  <!-- to do refactor in reactive form -->
+  
     <h2>Login</h2>
-    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="user-box">
-        <input type="email" required ngModel name="email">
+        <input type="email" formControlName="email">
         <label>Email</label>
       </div>
       <div class="user-box">
-        <input type="password"  required ngModel name="password">
+        <input type="password"  formControlName="password">
         <label>Password</label>
       </div>
       <button>
