@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.var;
-import proggetto.proggettoeco.UTILITY.dto.UserDTO;
 import proggetto.proggettoeco.UTILITY.dto.UserTokenDTO;
 import proggetto.proggettoeco.UTILITY.exceptions.DataNotCorrectEcxeption;
 import proggetto.proggettoeco.UTILITY.exceptions.UserAlreadyExistException;
@@ -176,7 +175,6 @@ public class UserService {
     public User findUser(String email) throws RuntimeException {
         User u = userRepository.findByEmail(email.toLowerCase());
         if (u != null) {
-            UserDTO uDTO = new UserDTO(u);
             return u;
         }
         throw new UserDoesNotExistException();
