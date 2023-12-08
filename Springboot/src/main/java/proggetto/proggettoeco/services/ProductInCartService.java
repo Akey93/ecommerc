@@ -5,12 +5,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import proggetto.proggettoeco.UTILITY.exceptions.InsufficientMoneyException;
 import proggetto.proggettoeco.UTILITY.dto.AddProductInCartRequest;
-import proggetto.proggettoeco.UTILITY.exceptions.DataNotCorrectEcxeption;
 import proggetto.proggettoeco.UTILITY.exceptions.InsufficientQuantityException;
 import proggetto.proggettoeco.UTILITY.exceptions.ProductDoesNotExistException;
 import proggetto.proggettoeco.UTILITY.exceptions.ProductDoesNotInCartException;
