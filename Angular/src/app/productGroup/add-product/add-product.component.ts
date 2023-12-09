@@ -15,6 +15,7 @@ export class AddProductComponent implements OnInit{
   colorControl = new FormControl('primary' as ThemePalette);
 
   productForm:FormGroup;
+  value = 'Clear me';
 
   
 

@@ -1,7 +1,7 @@
-<div class="add-product">
+<!-- to do mat-input -->
+<!-- <div class="add-product">
     <h1>Add product</h1>
     <div class="prodotto">
-        <!-- to do mat-input -->
 
         <form [formGroup]="productForm" class="common-form">
             <div class="container" >
@@ -19,27 +19,27 @@
                         numeri
                     </div>
                 </div>
-                <!-- <mat-form-field floatLabel="always">
+                <mat-form-field floatLabel="always">
                     <mat-label>Amount</mat-label>
                     <input matInput type="number" class="example-right-align" placeholder="0">
                     <span matTextPrefix>€&nbsp;</span>
                     <span matTextSuffix></span>
-                  </mat-form-field> -->
-                <!-- <div class="div-error">
+                  </mat-form-field>
+                <div class="div-error">
                     <input class="form-input" type="number" formControlName="price"
                         placeholder="Inserisci il prezzo del singolo prodotto">
                     <div class="errori" *ngIf="productForm.get('price')!.errors!=null">
                         inserisci un numero maggiore di 0
                     </div>
-                </div> -->
-                <!-- <mat-form-field [color]="colorControl.value!">
+                </div>
+                <mat-form-field [color]="colorControl.value!">
                     <mat-label>Color</mat-label>
                     <mat-select [formControl]="colorControl">
                       <mat-option value="primary">Primary</mat-option>
                       <mat-option value="accent">Accent</mat-option>
                       <mat-option value="warn" *ngFor="">Warn</mat-option>
                     </mat-select>
-                  </mat-form-field> -->
+                  </mat-form-field>
                 <div class="div-error">
                     <input class="form-input" type="number" formControlName="quantity"
                         placeholder="inserisci la quantità del prodotto">
@@ -54,13 +54,26 @@
                     </div>
                 </div>
 
-                <!-- to do ngclass -->
-
-<!-- to do disabilitare tramite classe css il bottone -->
-                <button type="button" (click)="aggiungi()"  [ngClass]="{ 'disabled-button': !productForm.valid }">Clicca qui</button>
+                <button type="button" (click)="aggiungi()"  [ngClass]="{ 'disabled-button': productForm.valid }">Clicca qui</button>
             </div>
-
+            
         </form>
     </div>
+    
+</div> -->
+<!-- to do ngclass -->
 
+<!-- to do disabilitare tramite classe css il bottone -->
+
+
+<div>
+    <mat-form-field class="example-form-field">
+        <mat-label>Clearable input</mat-label>
+        <input matInput type="text" [(ngModel)]="value">
+    
+          <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        
+      </mat-form-field>
 </div>

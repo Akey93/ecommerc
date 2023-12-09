@@ -55,6 +55,7 @@ public class UserService {
         u.setFirstName(request.getFirstName().toUpperCase());
         u.setSurname(request.getSurname().toUpperCase());
         u.setEmail(request.getEmail().toLowerCase());
+        u.setIndirizzo(request.getIndirizzo().toLowerCase());
         u.setPassword(passwordEncoder.encode(request.getPassword()));
         u.setRole(Role.USER);
         boolean e = userRepository.existsByEmail(u.getEmail());
@@ -75,6 +76,7 @@ public class UserService {
         u.setFirstName(request.getFirstName().toUpperCase());
         u.setSurname(request.getSurname().toUpperCase());
         u.setEmail(request.getEmail().toLowerCase());
+        u.setIndirizzo(request.getIndirizzo().toLowerCase());
         u.setPassword(passwordEncoder.encode(request.getPassword()));
         u.setRole(Role.ADMIN);
         boolean e = userRepository.existsByEmail(u.getEmail());
