@@ -162,6 +162,7 @@ public class ProductInCartService {
             String code = pic.getProduct().getCodeProduct();
             buyProductInCart(email, code, false);
         }
+        getCartDelete(email);
         return;
     }
 

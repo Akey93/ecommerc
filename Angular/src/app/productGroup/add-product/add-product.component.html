@@ -54,10 +54,10 @@
                     </div>
                 </div>
 
+                <!-- to do ngclass -->
 
 <!-- to do disabilitare tramite classe css il bottone -->
-<!-- to do ngclass -->
-                <button (click)="aggiungi()"  [class.disabled]="!productForm.valid">clicca qua</button>
+                <button type="button" (click)="aggiungi()"  [ngClass]="{ 'disabled-button': !productForm.valid }">Clicca qui</button>
             </div>
 
         </form>

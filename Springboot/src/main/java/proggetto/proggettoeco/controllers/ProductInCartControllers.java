@@ -81,7 +81,6 @@ public class ProductInCartControllers {
     public ResponseEntity buyAllProductInCart( @RequestParam("email") String email) {
         try {
             productInCartService.buyAllProductInCart(email);
-            productInCartService.getCartDelete(email);
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);
