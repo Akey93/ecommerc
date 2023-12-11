@@ -2,11 +2,18 @@
     <div class="titolo">
         <a class="LunSol" href=""><span><strong>LunSol</strong></span></a>
     </div>
-    <div class="search">
+    <!-- <div class="search">
         <input class="search" type="text" placeholder="Ricerca LunSol" />
         <button>
             <mat-icon>search</mat-icon>
         </button>
+    </div> -->
+    <div class="search-wrapper">
+        <div class="input-holder">
+            <input type="text" class="search-input" placeholder="Type to search" />
+            <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+        </div>
+        <span class="close" onclick="searchToggle(this, event);"></span>
     </div>
     <div class="routerLink">
         <ul>

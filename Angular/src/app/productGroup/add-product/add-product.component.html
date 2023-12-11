@@ -67,13 +67,38 @@
 
 
 <div>
-    <mat-form-field class="example-form-field">
-        <mat-label>Clearable input</mat-label>
-        <input matInput type="text" [(ngModel)]="value">
-    
-          <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-            <mat-icon>close</mat-icon>
-          </button>
-        
-      </mat-form-field>
+    <fieldset>
+        <legend>product</legend>
+        <form action="">
+            <table><tr>
+                <td>
+
+                    <mat-form-field>
+                        <mat-label>Nome prodotto
+                        </mat-label>
+                        <input type="text" matInput>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Codice prodotto
+                        </mat-label>
+                        <input type="text" matInput>
+                    </mat-form-field>
+                </td>
+            </tr>
+            </table>
+            <mat-form-field>
+                <mat-label value="warn">Seleziona un tipo</mat-label>
+                <mat-select>
+                    <mat-option>Alimentare</mat-option>
+                    <mat-option>Sport</mat-option>
+                    <mat-option>Abbigliamento</mat-option>
+                    <mat-option>Utensili</mat-option>
+                    <mat-option>Mondo Casa</mat-option>
+                    <mat-option>Altro</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </fieldset>
 </div>

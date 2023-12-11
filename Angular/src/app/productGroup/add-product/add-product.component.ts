@@ -12,7 +12,7 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class AddProductComponent implements OnInit{
 
-  colorControl = new FormControl('primary' as ThemePalette);
+  /* colorControl = new FormControl('primary' as ThemePaletuute); */
 
   productForm:FormGroup;
   value = 'Clear me';
