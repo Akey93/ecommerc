@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-function searchToggle(obj: any, evt: { preventDefault: () => void; }){
-  var container = (obj).closest('.search-wrapper');
-      if(!container.hasClass('active')){
-          container.addClass('active');
-          evt.preventDefault();
-      }
-      else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
-          container.removeClass('active');
-          // clear input
-          container.find('.search-input').val('');
-      }
-}
+
 
 @Component({
   selector: 'app-navbar',
