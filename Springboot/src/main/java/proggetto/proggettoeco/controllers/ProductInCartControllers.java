@@ -31,9 +31,10 @@ public class ProductInCartControllers {
 
     @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     @PostMapping("/addProductToCart")
-    public ResponseEntity addProductToCart( @RequestBody AddProductInCartRequest DtoPic) {
+    public ResponseEntity addProductToCart(HttpServletRequest request, @RequestBody AddProductInCartRequest DtoPic) {
         try {
-
+            String email= jwtService.extractUserEmailByRequest(request);
+            DtoPic.setEmail(email);
             return new ResponseEntity(productInCartService.addProductToCartService(DtoPic),
                     HttpStatus.OK);
         } catch (Exception e) {
@@ -68,8 +69,9 @@ public class ProductInCartControllers {
 
     @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     @GetMapping("/getAllCart")
-    public ResponseEntity carrello(@RequestParam("email") String email) {
+    public ResponseEntity carrello(HttpServletRequest request) {
         try {
+            String email= jwtService.extractUserEmailByRequest(request);
             return new ResponseEntity(productInCartService.getCart( email), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);
@@ -78,8 +80,9 @@ public class ProductInCartControllers {
 
     @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     @PostMapping("/buyAllCart")
-    public ResponseEntity buyAllProductInCart( @RequestParam("email") String email) {
+    public ResponseEntity buyAllProductInCart(HttpServletRequest request) {
         try {
+            String email= jwtService.extractUserEmailByRequest(request);
             productInCartService.buyAllProductInCart(email);
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
@@ -89,9 +92,11 @@ public class ProductInCartControllers {
 
     @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     @PutMapping("/modifyQP")
-    public ResponseEntity modifyQP(@RequestBody AddProductInCartRequest DtoPic) {
+    public ResponseEntity modifyQP(HttpServletRequest request,@RequestBody AddProductInCartRequest DtoPic) {
         
         try {
+            String email= jwtService.extractUserEmailByRequest(request);
+            DtoPic.setEmail(email);
             return new ResponseEntity( productInCartService.modifiQ(DtoPic),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);

@@ -1,11 +1,17 @@
-<div class="carta">
-    <p class="nome">Nome: {{product.product.nameProduct}}</p>
-    <p class="price">Prezzo: {{product.product.price}}€</p>
-    
-    <p class="quantita">Quantità disponibile: {{product.product.quantity}}
-         <input (change)="quantitaP()" [formControl]="quantity" class="quantitaN"  type="number" min=1  max="{{product.product.quantity}}"  ></p>
+<div class="carte">
+    <div class="carta">
+
+        <p class="nome">Nome: {{product.product.nameProduct}}</p>
+        <p class="price">Prezzo: {{product.product.price}}€</p>
+
+        <p class="quantita">Quantità disponibile: {{product.product.quantity}}
+            <input (change)="quantitaP(quantity)" [formControl]="quantity" class="quantitaN" type="number" min=1
+                max="{{product.product.quantity}}">
+        </p>
+        <span>
+            <button class="compra" (click)="compra(quantity)">Compra!</button>
         
-        <button (click)="compra(quantity)">Compra!</button>
-        
-        <button (click)="delete()" ><mat-icon>delete</mat-icon></button>
+            <button class="cestino" (click)="delete()"><mat-icon>delete</mat-icon></button>
+        </span>
+    </div>
 </div>

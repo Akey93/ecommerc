@@ -24,12 +24,10 @@ export class ProductInCartComponent implements  OnInit{
 
   compra(dato:FormControl):void{
     let cartProduct:DtoProduct={
-      email: '',
       quantity: 0,
         codeProduct:''
       }
       cartProduct.codeProduct=this.product.product.codeProduct;
-    cartProduct.email=localStorage.getItem('userEmail') || '';
     cartProduct.quantity=dato.value;
 
     this.productService.buyProduct(cartProduct.codeProduct).subscribe((data)=>{
@@ -39,28 +37,27 @@ export class ProductInCartComponent implements  OnInit{
   }
   delete():void{
     let cartProduct:DtoProduct={
-    email: '',
     quantity: 0,
       codeProduct:''
     }
     cartProduct.codeProduct=this.product.product.codeProduct;
-    cartProduct.email=localStorage.getItem('userEmail') || '';
     this.productService.deleteProductCart(cartProduct.codeProduct).subscribe(()=>{
       
       location.reload();
     })
   }
-  quantitaP():void{
+  quantitaP(data:FormControl):void{
+    console.log(data)
     let cartProduct:DtoProduct={
-      email: '',
       quantity: 0,
         codeProduct:''
       }
       cartProduct.codeProduct=this.product.product.codeProduct;
-    cartProduct.email=localStorage.getItem('userEmail') || '';
-    cartProduct.quantity=1 ;
+
+    cartProduct.quantity=data.value;
 
     this.productService.quantity(cartProduct).subscribe((dato)=>{
+
     })
   }
 }

@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
+  isAdmin():boolean{
+    let role = localStorage.getItem('userRole');
+    if(role=='ADMIN'){
+      return true;
+    }return false;
+  }
+
 }

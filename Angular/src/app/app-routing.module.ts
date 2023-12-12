@@ -1,10 +1,10 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './page/home/home.component';
 import { SignupComponent } from './userGroup/signup/signup.component';
 import { LoginComponent } from './userGroup/login/login.component';
-import { CartComponent } from './cart/cart.component';
-import { ProfileComponent } from './profile/profile.component';
+import { CartComponent } from './page/cart/cart.component';
+import { ProfileComponent } from './page/profile/profile.component';
 import { authGuard, authGuard2 } from './authGuard/auth.guard';
 import { AddProductComponent } from './productGroup/add-product/add-product.component';
 import { ProductComponent } from './productGroup/product/product.component';

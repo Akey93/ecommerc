@@ -62,26 +62,25 @@ public class ProductInCartService {
             throw new InsufficientQuantityException();
         }
         ProductInCart nPic = new ProductInCart();
-        if (quantity > 0) {
-            if (productInCartRepository.findByUserAndProduct(user, product) == null) {
-                nPic.setProduct(product);
-                nPic.setUser(user);
-                nPic.setQuantity(quantity);
-                productInCartRepository.save(nPic);
-                user.getCart().add(nPic);
-                return userRepository.save(user).getCart();
-            } else {
-                ProductInCart pic = productInCartRepository.findByUserAndProduct(user, product);
-                pic.setQuantity(quantity + pic.getQuantity());
-                quantitaTotProdotto = product.getQuantity() - (pic.getQuantity());
-                if (quantitaTotProdotto < 0) {
-                    throw new InsufficientQuantityException();
-                }
-                productInCartRepository.save(pic);
-                return userRepository.save(user).getCart();
+        if (quantity <= 0)
+            throw new QuantityCannotBeLess0Exception();
+        if (productInCartRepository.findByUserAndProduct(user, product) == null) {
+            nPic.setProduct(product);
+            nPic.setUser(user);
+            nPic.setQuantity(quantity);
+            productInCartRepository.save(nPic);
+            user.getCart().add(nPic);
+            return userRepository.save(user).getCart();
+        } else {
+            ProductInCart pic = productInCartRepository.findByUserAndProduct(user, product);
+            pic.setQuantity(quantity);
+            quantitaTotProdotto = product.getQuantity() - (pic.getQuantity());
+            if (quantitaTotProdotto < 0) {
+                throw new InsufficientQuantityException();
             }
+            productInCartRepository.save(pic);
+            return userRepository.save(user).getCart();
         }
-        throw new QuantityCannotBeLess0Exception();
     }
 
     @Transactional
@@ -136,7 +135,6 @@ public class ProductInCartService {
         for (ProductInCart pic : cart) {
             productInCartRepository.delete(pic);
         }
-        return;
     }
 
     public double calcolo(User user) throws RuntimeException {

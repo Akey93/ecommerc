@@ -32,7 +32,6 @@ export class ProductComponent   {
     if(data.valid){
       let dtoProduct: DtoProduct ={
         quantity: data.value,
-        email: localStorage.getItem('userEmail')||'',
         codeProduct: this.product.codeProduct
       }
   

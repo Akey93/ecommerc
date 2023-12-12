@@ -1,104 +1,74 @@
-<!-- to do mat-input -->
-<!-- <div class="add-product">
-    <h1>Add product</h1>
-    <div class="prodotto">
-
-        <form [formGroup]="productForm" class="common-form">
-            <div class="container" >
-                <div class="div-error">
-
-                    <input class="form-input" type="text" formControlName="nameProduct" placeholder="Inserisci il nome">
-                    <div class="errori" *ngIf="productForm.get('nameProduct')!.errors!=null">
-                        Il nome può essere composto solo da lettere deve contenere almeno 4 caratteri
-                    </div>
-                </div>
-                <div class="div-error">
-                    <input class="form-input" type="text" formControlName="codeProduct" placeholder="codice prodotto">
-                    <div class="errori" *ngIf="productForm.get('codeProduct')!.errors!=null">
-                        Il codice del prodotto deve contenere almeno 4 valori e può essere composto solo da lettere e
-                        numeri
-                    </div>
-                </div>
-                <mat-form-field floatLabel="always">
-                    <mat-label>Amount</mat-label>
-                    <input matInput type="number" class="example-right-align" placeholder="0">
-                    <span matTextPrefix>€&nbsp;</span>
-                    <span matTextSuffix></span>
-                  </mat-form-field>
-                <div class="div-error">
-                    <input class="form-input" type="number" formControlName="price"
-                        placeholder="Inserisci il prezzo del singolo prodotto">
-                    <div class="errori" *ngIf="productForm.get('price')!.errors!=null">
-                        inserisci un numero maggiore di 0
-                    </div>
-                </div>
-                <mat-form-field [color]="colorControl.value!">
-                    <mat-label>Color</mat-label>
-                    <mat-select [formControl]="colorControl">
-                      <mat-option value="primary">Primary</mat-option>
-                      <mat-option value="accent">Accent</mat-option>
-                      <mat-option value="warn" *ngFor="">Warn</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                <div class="div-error">
-                    <input class="form-input" type="number" formControlName="quantity"
-                        placeholder="inserisci la quantità del prodotto">
-                    <div class="errori" *ngIf="productForm.get('quantity')!.errors!=null">
-                        inserisci un numero maggiore di 0
-                    </div>
-                </div>
-                <div class="div-error">
-                    <input class="form-input" type="text" formControlName="type" placeholder="Inserisci il tipo">
-                    <div class="errori" *ngIf="productForm.get('type')!.errors!=null">
-                        inserisci il tipo
-                    </div>
-                </div>
-
-                <button type="button" (click)="aggiungi()"  [ngClass]="{ 'disabled-button': productForm.valid }">Clicca qui</button>
-            </div>
-            
-        </form>
-    </div>
-    
-</div> -->
-<!-- to do ngclass -->
-
 <!-- to do disabilitare tramite classe css il bottone -->
+
+
 
 
 <div>
     <fieldset>
-        <legend>product</legend>
-        <form action="">
-            <table><tr>
-                <td>
+        <legend>Product</legend>
+        <form [formGroup]="productForm">
+            <table>
+                <tr>
+                    <td [ngClass]="{ 'invalid-field': productForm.get('nameProduct')?.invalid && productForm.get('nameProduct')?.touched }">
 
-                    <mat-form-field>
-                        <mat-label>Nome prodotto
-                        </mat-label>
-                        <input type="text" matInput>
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field>
-                        <mat-label>Codice prodotto
-                        </mat-label>
-                        <input type="text" matInput>
-                    </mat-form-field>
-                </td>
-            </tr>
+                        <mat-form-field>
+                            <mat-label>Nome prodotto
+                            </mat-label>
+                            <input type="text" matInput formControlName="nameProduct">
+                            <mat-error *ngIf="productForm.get('nameProduct')?.invalid && productForm.get('nameProduct')?.touched">
+                                Inserisci un nome valido
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td [ngClass]="{ 'invalid-field': productForm.get('codeProduct')?.invalid && productForm.get('codeProduct')?.touched }">
+                        <mat-form-field>
+                            <mat-label>Codice prodotto
+                            </mat-label>
+                            <input type="text" matInput formControlName="codeProduct">
+                            <mat-error *ngIf="productForm.get('codeProduct')?.invalid && productForm.get('codeProduct')?.touched">
+                                Inserisci un codice prodotto valido
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td [ngClass]="{'invalid-field':productForm.get('price')?.invalid && productForm.get('price')?.touched}">
+                        <mat-form-field>
+                            <mat-label>Price 
+                            </mat-label>
+                                <input type="number" matInput formControlName="price">
+                                <mat-error *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+                                    il valore inserito non può essere negativo
+                                </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td [ngClass]="{'invalid-field':productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched}">
+                        <mat-form-field>
+                            <mat-label>Quantity
+                            </mat-label>
+                                <input type="number" matInput formControlName="quantity">
+                                <mat-error *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched">
+                                    il valore inserito non può essere negativo
+                                </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
             </table>
             <mat-form-field>
-                <mat-label value="warn">Seleziona un tipo</mat-label>
-                <mat-select>
-                    <mat-option>Alimentare</mat-option>
-                    <mat-option>Sport</mat-option>
-                    <mat-option>Abbigliamento</mat-option>
-                    <mat-option>Utensili</mat-option>
-                    <mat-option>Mondo Casa</mat-option>
-                    <mat-option>Altro</mat-option>
+                <mat-label>Seleziona un tipo</mat-label>
+                <mat-select class="multi" formControlName="type">
+                    <mat-option class="option" value="Alimentare">Alimentare</mat-option>
+                    <mat-option class="option" value="Sport">Sport</mat-option>
+                    <mat-option class="option" value="Abbigliamento">Abbigliamento</mat-option>
+                    <mat-option class="option" value="Utensili">Utensili</mat-option>
+                    <mat-option class="option" value="Mondo Casa">Mondo Casa</mat-option>
+                    <mat-option class="option" value="Altro">Altro</mat-option>
                 </mat-select>
             </mat-form-field>
+            <br>
+            <button (click)="aggiungi()" class="my-button" [ngClass]="{ 'disabled-button': !isFormValid }">Aggiugi il prodotto!</button>
         </form>
     </fieldset>
+    
+ 
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../productService/product.service';
-import { ThemePalette } from '@angular/material/core';
+
 
 
 
@@ -15,7 +15,9 @@ export class AddProductComponent implements OnInit{
   /* colorControl = new FormControl('primary' as ThemePaletuute); */
 
   productForm:FormGroup;
-  value = 'Clear me';
+
+  isFormValid: boolean = true;
+  
 
   
 
@@ -26,18 +28,26 @@ export class AddProductComponent implements OnInit{
       codeProduct:['',[Validators.required, Validators.pattern("^[a-zA-Z0-9]{4,}$")]],
       price:['',[Validators.required, Validators.min(0)]],
       quantity:['',[Validators.required,Validators.min(0)]],
-      type:['',[Validators.required]]
+      type:['']
     })
-    const nameValue = this.productForm.get('nameProduct')?.value; 
+    this.productForm.statusChanges.subscribe(() => {
+      this.isFormValid = this.productForm.valid ;
+    });
+    console.log(this.isFormValid)
+    
+   
+    
   }
   
+  
   ngOnInit(): void {
+    
     
   }
   aggiungi():void{
     
     this.productService.addProduct(this.productForm.value).subscribe((data)=>{
-      
+      console.log(data)
     });
   }
  

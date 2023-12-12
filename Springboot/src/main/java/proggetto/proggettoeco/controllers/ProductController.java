@@ -104,6 +104,16 @@ public class ProductController {
         }
 
     }
+    @GetMapping("/getUserProduct")
+    public ResponseEntity getUserProduct(HttpServletRequest request){
+        try {
+            String email= jwtService.extractUserEmailByRequest(request);
+            return new ResponseEntity(productService.getProductsByEmail(email),HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
+        }
+    }
+    
     
     
 }

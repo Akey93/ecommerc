@@ -18,6 +18,7 @@ import proggetto.proggettoeco.UTILITY.exceptions.PriceOrNameSetDifferentExceptio
 import proggetto.proggettoeco.UTILITY.exceptions.ProductAlreadyExistException;
 import proggetto.proggettoeco.UTILITY.exceptions.ProductDoesNotExistException;
 import proggetto.proggettoeco.UTILITY.exceptions.TypeNotFoundException;
+import proggetto.proggettoeco.UTILITY.exceptions.UserDoesNotExistException;
 import proggetto.proggettoeco.entities.Product;
 import proggetto.proggettoeco.entities.User;
 import proggetto.proggettoeco.repositories.ProductRepository;
@@ -109,5 +110,14 @@ public class ProductService {
     public List<Product> getAllProduct(){
         
         return productRepository.findAll();
+    }
+    public List<Product> getProductsByEmail(String email)throws RuntimeException{
+        User user= userRepository.findByEmail(email.toLowerCase());
+        if(email==null){
+            throw new UserDoesNotExistException();
+        }
+        List<Product> listaProdotti= productRepository.findByUser(user);
+        return listaProdotti;
+        
     }
 }

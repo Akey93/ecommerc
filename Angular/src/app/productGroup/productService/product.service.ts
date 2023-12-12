@@ -32,15 +32,16 @@ export class ProductService {
     let data={codeProduct:dato}
     return this.apiService.makeRequest('delete',`${API.cart}${API.removePC}`,null,data)
   }
-  buyAll(dato:string):any{
-    let data={email:dato}
-    return this.apiService.makeRequest('post',`${API.cart}${API.buyAll}`,null,data)
+  buyAll():any{
+    return this.apiService.makeRequest('post',`${API.cart}${API.buyAll}`)
   }
   quantity(data:DtoProduct):Observable<Number>{
     return this.apiService.makeRequest('put', `${API.cart}${API.modifyQP}`, data);
   }
-  getCart(data:String):Observable<ProductInCart[]>{
-    let dato={email:data} 
-    return this.apiService.makeRequest('get',`${API.cart}${API.getAllC}`,null,dato)
+  getCart():Observable<ProductInCart[]>{
+    return this.apiService.makeRequest('get',`${API.cart}${API.getAllC}`)
+  }
+  getProductByEmail():Observable<Product[]>{
+    return this.apiService.makeRequest('get',`${API.product}${API.getUserProduct}`)
   }
 }

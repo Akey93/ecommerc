@@ -14,6 +14,7 @@ export const API={
     removePC:'/removeProductToCart',
     buyAll:'/buyAllCart',
     modifyQP:'/modifyQP',
+    getUserProduct:'/getUserProduct',
     
 
     
