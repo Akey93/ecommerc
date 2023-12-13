@@ -26,9 +26,9 @@ export class AddProductComponent implements OnInit{
     this.productForm=this.formBuilder.group({
       nameProduct:['',[Validators.required, Validators.pattern("^[a-zA-Z-' ]{4,}$")]],
       codeProduct:['',[Validators.required, Validators.pattern("^[a-zA-Z0-9]{4,}$")]],
-      price:['',[Validators.required, Validators.min(0)]],
+      price:[0.00,[Validators.required, Validators.min(0)]],
       quantity:['',[Validators.required,Validators.min(0)]],
-      type:['']
+      type:['',[Validators.required]]
     })
     this.productForm.statusChanges.subscribe(() => {
       this.isFormValid = this.productForm.valid ;

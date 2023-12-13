@@ -57,13 +57,13 @@ public class ProductService {
             }throw new PriceAndQuantityCannotBeLessZeroException();
         }throw new ProductAlreadyExistException();
     }
-    public Product addQuantityProduct(Product p)throws RuntimeException{
+    public Product setQuantityProduct(Product p)throws RuntimeException{
         Product d = productRepository.findByCodeProduct(p.getCodeProduct().toUpperCase());
         if(d!=null){
             boolean a= p.getNameProduct().toUpperCase().equals(d.getNameProduct());
             boolean b = p.getPrice()==d.getPrice();
             if(a&&b){
-                d.setQuantity(d.getQuantity()+p.getQuantity());
+                d.setQuantity(p.getQuantity());
                 if(d.getQuantity()>=0){
                     return productRepository.save(d);
                 }throw new PriceAndQuantityCannotBeLessZeroException();

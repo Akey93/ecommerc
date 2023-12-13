@@ -41,10 +41,10 @@ public class ProductController {
         }
     }
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PutMapping("/addQuantityProduct")
-    public ResponseEntity addQuantityProduct(@RequestBody Product p){
+    @PutMapping("/setQuantityProduct")
+    public ResponseEntity setQuantityProduct(@RequestBody Product p){
         try {
-            return new ResponseEntity(productService.addQuantityProduct(p),HttpStatus.OK);
+            return new ResponseEntity(productService.setQuantityProduct(p),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
         }

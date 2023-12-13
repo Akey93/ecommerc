@@ -1,10 +1,11 @@
 <div class="carta">
     <p class="nome">Nome: {{product.nameProduct}}</p>
     <p class="price">Prezzo: {{product.price}}€</p>
+   <!--  <form [formGroup]="productForm"> -->
 
     <p class="quantita">Quantità disponibile: {{product.quantity}}
-        <input [formControl]="quantity" class="quantitaN" type="number" min=1 max="{{product.quantity}}">
-    </p>
-    <button class="cestino" (click)="delete()"><mat-icon>delete</mat-icon></button>
-
+       <!--  <input (change)="quantityP(productForm.get('quantity')?.value)" formControlName="quantity" class="quantitaN" type="number" min=1 max="{{product.quantity}}">
+    --> </p>
+    <!-- <button class="cestino" (click)="delete()"><mat-icon>delete</mat-icon></button> -->
+<!-- </form> -->
 </div>
