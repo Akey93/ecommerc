@@ -60,10 +60,10 @@ public class ProductController {
     }
     @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/removeProduct")
-    public ResponseEntity removeProduct(@RequestParam ("code")String code){
+    public ResponseEntity removeProduct(@RequestParam ("codeProduct")String code){
         try {
             productService.removeProduct(code);
-            return new ResponseEntity("Il prodotto è stato rimosso",HttpStatus.OK);
+            return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
         } 

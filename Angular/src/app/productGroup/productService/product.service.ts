@@ -10,38 +10,47 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  constructor(private apiService:ApiService, private router:Router) { 
-    
+  constructor(private apiService: ApiService, private router: Router) {
+
   }
-  addProduct(product:Product):Observable <Product>{
-    return this.apiService.makeRequest('post',`${API.product}${API.addP}`,product )
-    
+  addProduct(product: Product): Observable<Product> {
+    return this.apiService.makeRequest('post', `${API.product}${API.addP}`, product)
+
   }
-  getAllProduct():Observable<Product[]>{
-    return this.apiService.makeRequest('get',`${API.product}${API.getAllP}`)
+  getAllProduct(): Observable<Product[]> {
+    return this.apiService.makeRequest('get', `${API.product}${API.getAllP}`)
   }
-  addToCart(data:DtoProduct):Observable<ProductInCart[]>{
-    
-    return this.apiService.makeRequest('post',`${API.cart}${API.addC}`,data)
+  getProductByEmail(): Observable<Product[]> {
+    return this.apiService.makeRequest('get', `${API.product}${API.getUserProduct}`)
   }
-  buyProduct(dato:string):Observable<Product>{
-    let data={code:dato}
-    return this.apiService.makeRequest('post',`${API.cart}${API.buy}`,null,data)
+  removeProduct(dato: String): any {
+    let data = { codeProduct: dato }
+    return this.apiService.makeRequest('delete', `${API.product}${API.rimuoviProdotto}`, null, data);
   }
-  deleteProductCart(dato:String):any{
-    let data={codeProduct:dato}
-    return this.apiService.makeRequest('delete',`${API.cart}${API.removePC}`,null,data)
+
+
+
+
+
+  addToCart(data: DtoProduct): Observable<ProductInCart[]> {
+
+    return this.apiService.makeRequest('post', `${API.cart}${API.addC}`, data)
   }
-  buyAll():any{
-    return this.apiService.makeRequest('post',`${API.cart}${API.buyAll}`)
+  buyProduct(dato: string): Observable<Product> {
+    let data = { code: dato }
+    return this.apiService.makeRequest('post', `${API.cart}${API.buy}`, null, data)
   }
-  quantity(data:DtoProduct):Observable<Number>{
+  deleteProductCart(dato: String): any {
+    let data = { codeProduct: dato }
+    return this.apiService.makeRequest('delete', `${API.cart}${API.removePC}`, null, data)
+  }
+  buyAll(): any {
+    return this.apiService.makeRequest('post', `${API.cart}${API.buyAll}`)
+  }
+  quantity(data: DtoProduct): Observable<Number> {
     return this.apiService.makeRequest('put', `${API.cart}${API.modifyQP}`, data);
   }
-  getCart():Observable<ProductInCart[]>{
-    return this.apiService.makeRequest('get',`${API.cart}${API.getAllC}`)
-  }
-  getProductByEmail():Observable<Product[]>{
-    return this.apiService.makeRequest('get',`${API.product}${API.getUserProduct}`)
+  getCart(): Observable<ProductInCart[]> {
+    return this.apiService.makeRequest('get', `${API.cart}${API.getAllC}`)
   }
 }

@@ -1,20 +1,28 @@
 export const API={
     baseUrl: 'http://localhost:8080',
     user:'/user',
-    product:'/product',
-    cart:'/cart',
     add:'/addUser',
-    addP:'/addProduct',
-    addC:'/addProductToCart',
     authority:'/verificaAuthority',
     login:'/login',
+
+
+
+    product:'/product',
+    addP:'/addProduct',
     getAllP:'/getAllProduct',
+    rimuoviProdotto:'/removeProduct',
+
+
+
+    cart:'/cart',
+    addC:'/addProductToCart',
     getAllC:'/getAllCart',
     buy:'/buyProduct',
     removePC:'/removeProductToCart',
     buyAll:'/buyAllCart',
     modifyQP:'/modifyQP',
     getUserProduct:'/getUserProduct',
+
     
 
     

@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './bar/sidebar/sidebar.component';
+import { PersonalProductComponent } from './productGroup/personal-product/personal-product.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SidebarComponent } from './bar/sidebar/sidebar.component';
     AddProductComponent,
     ProductComponent,
     ProductInCartComponent,
-    SidebarComponent
+    SidebarComponent,
+    PersonalProductComponent
   ],
   imports: [
     BrowserModule,
