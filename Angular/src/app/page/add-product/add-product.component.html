@@ -36,7 +36,7 @@
                         <mat-form-field>
                             <mat-label>Price 
                             </mat-label>
-                                <input type="number" matInput formControlName="price">
+                                <input type="number" matInput formControlName="price" min="0.01" step="0.01">
                                 <mat-error *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
                                     il valore inserito non può essere negativo
                                 </mat-error>
@@ -46,7 +46,7 @@
                         <mat-form-field>
                             <mat-label>Quantity
                             </mat-label>
-                                <input type="number" matInput formControlName="quantity">
+                                <input type="number" matInput formControlName="quantity" step="1" min="1">
                                 <mat-error *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched">
                                     il valore inserito non può essere negativo
                                 </mat-error>

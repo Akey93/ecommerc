@@ -6,7 +6,7 @@ import { LoginComponent } from './userGroup/login/login.component';
 import { CartComponent } from './page/cart/cart.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { authGuard, authGuard2 } from './authGuard/auth.guard';
-import { AddProductComponent } from './productGroup/add-product/add-product.component';
+import { AddProductComponent } from './page/add-product/add-product.component';
 import { ProductComponent } from './productGroup/product/product.component';
 
 const routes: Routes = [

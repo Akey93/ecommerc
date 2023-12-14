@@ -1,1 +1,1 @@
-<app-sidebar *ngIf="isAdmin()"></app-sidebar>
+<div *ngIf="isAdmin()"><app-personal-product [product]="prodotto" *ngFor="let prodotto of prodotti"></app-personal-product></div>

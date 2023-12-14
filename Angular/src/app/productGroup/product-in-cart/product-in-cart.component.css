@@ -45,6 +45,8 @@
     background: transparent;
     border: none;
     cursor: pointer;
+    position: relative;
+    top:0.5em;
 
 }
 
@@ -64,9 +66,7 @@ span {
     justify-content: flex-end;
 }
 
-mat-icon {
-    padding-top: 0.55em;
-}
+
 
 .quantitaN {
     width: 2.5em;

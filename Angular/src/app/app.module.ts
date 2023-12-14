@@ -13,7 +13,7 @@ import { CartComponent } from './page/cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ProfileComponent } from './page/profile/profile.component';
-import { AddProductComponent } from './productGroup/add-product/add-product.component';
+import { AddProductComponent } from './page/add-product/add-product.component';
 import { ProductComponent } from './productGroup/product/product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductInCartComponent } from './productGroup/product-in-cart/product-in-cart.component';

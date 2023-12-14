@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductService } from '../productService/product.service';
+import { ProductService } from '../../productGroup/productService/product.service';
 
 
 
@@ -12,7 +12,7 @@ import { ProductService } from '../productService/product.service';
 })
 export class AddProductComponent implements OnInit{
 
-  /* colorControl = new FormControl('primary' as ThemePaletuute); */
+  
 
   productForm:FormGroup;
 
@@ -26,8 +26,8 @@ export class AddProductComponent implements OnInit{
     this.productForm=this.formBuilder.group({
       nameProduct:['',[Validators.required, Validators.pattern("^[a-zA-Z-' ]{4,}$")]],
       codeProduct:['',[Validators.required, Validators.pattern("^[a-zA-Z0-9]{4,}$")]],
-      price:[0.00,[Validators.required, Validators.min(0)]],
-      quantity:['',[Validators.required,Validators.min(0)]],
+      price:[0.01,[Validators.required, Validators.min(0.01)]],
+      quantity:[1,[Validators.required,Validators.min(1)]],
       type:['',[Validators.required]]
     })
     this.productForm.statusChanges.subscribe(() => {

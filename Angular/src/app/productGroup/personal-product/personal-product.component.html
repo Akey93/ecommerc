@@ -1,11 +1,85 @@
 <div class="carta">
-    <p class="nome">Nome: {{product.nameProduct}}</p>
-    <p class="price">Prezzo: {{product.price}}€</p>
-   <!--  <form [formGroup]="productForm"> -->
+    <form [formGroup]="productForm">
+        <div>
+            <span *ngIf="cNome">
+                <mat-form-field
+                    [ngClass]="{ 'invalid-field': productForm.get('nameProduct')?.invalid && productForm.get('nameProduct')?.touched }">
+                    <mat-label>Nome prodotto
+                    </mat-label>
+                    <input type="text" matInput formControlName="nameProduct">
+                    <mat-error
+                        *ngIf="productForm.get('nameProduct')?.invalid && productForm.get('nameProduct')?.touched">
+                        Inserisci un nome valido
+                    </mat-error>
+                </mat-form-field>
+                <button  class="change"><mat-icon>check_circle_outline</mat-icon></button>
+                <button (click)="cambioNomeN()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+            <span *ngIf="!cNome" class="nome">Nome: {{product.nameProduct}}
+                <button (click)="cambioNome()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+        </div>
 
-    <p class="quantita">Quantità disponibile: {{product.quantity}}
-       <!--  <input (change)="quantityP(productForm.get('quantity')?.value)" formControlName="quantity" class="quantitaN" type="number" min=1 max="{{product.quantity}}">
-    --> </p>
-    <!-- <button class="cestino" (click)="delete()"><mat-icon>delete</mat-icon></button> -->
-<!-- </form> -->
+        <div>
+            <span *ngIf="cPrice">
+                <mat-form-field class="quantita"
+                    [ngClass]="{'invalid-field':productForm.get('price')?.invalid && productForm.get('price')?.touched}">
+                    <mat-label>Price
+                    </mat-label>
+                    <input class="quantitaN" type="number" matInput formControlName="price" min="0.01" step="0.01">
+                    <mat-error *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+                        il valore inserito non può essere negativo
+                    </mat-error>
+                </mat-form-field>
+                <button class="change"><mat-icon>check_circle_outline</mat-icon></button>
+                <button (click)="cambioPriceN()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+            <span *ngIf="!cPrice" class="price">Prezzo: {{product.price}}€
+                <button (click)="cambioPrice()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+        </div>
+
+        <div>
+            <span *ngIf="cQuantity">
+                <mat-form-field class="quantita"
+                    [ngClass]="{'invalid-field':productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched}">
+                    <mat-label>Quantity
+                    </mat-label>
+                    <input class="quantitaN" type="number" matInput formControlName="quantity" min="1" step="1">
+                    <mat-error *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched">
+                        il valore inserito non può essere inferiore ad 1
+                    </mat-error>
+                </mat-form-field>
+                <button class="change"><mat-icon>check_circle_outline</mat-icon></button>
+                <button (click)="cambioQuantityN()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+            <span *ngIf="!cQuantity" class="quantita">Quantità disponibile: {{product.quantity}}
+                <button (click)="cambioQuantity()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+        </div>
+
+        <div>
+            <span *ngIf="cType">
+                <mat-form-field>
+                    <mat-label>Seleziona un tipo</mat-label>
+                    <mat-select class="multi" formControlName="type">
+                        <mat-option class="option" value="Alimentare">Alimentare</mat-option>
+                        <mat-option class="option" value="Sport">Sport</mat-option>
+                        <mat-option class="option" value="Abbigliamento">Abbigliamento</mat-option>
+                        <mat-option class="option" value="Utensili">Utensili</mat-option>
+                        <mat-option class="option" value="Mondo Casa">Mondo Casa</mat-option>
+                        <mat-option class="option" value="Altro">Altro</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button class="change"><mat-icon>check_circle_outline</mat-icon></button>
+                <button (click)="cambioTypeN()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+            <span *ngIf="!cType">Il Prodotto è di tipo: {{product.type}}
+                <button (click)="cambioType()" class="change"><mat-icon>open_in_new</mat-icon></button>
+            </span>
+        </div>
+        <br><br>
+        <span class="cestinoP">Cestino:  </span>
+        <button class="cestino" (click)="delete()"><mat-icon>delete</mat-icon></button>
+    </form>
 </div>
