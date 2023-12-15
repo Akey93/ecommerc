@@ -109,7 +109,8 @@ public class ProductInCartControllers {
     @GetMapping("/calcolo")
     public ResponseEntity calcolo(HttpServletRequest request){
         try {
-            User u=userRepository.findByEmail(jwtService.extractUserEmailByRequest(request));
+            User u=userRepository.findByEmail(jwtService.extractUserEmailByRequest(request).toLowerCase());
+            System.out.println(u);
             return new ResponseEntity(productInCartService.calcolo(u),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);

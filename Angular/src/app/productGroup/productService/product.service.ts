@@ -63,6 +63,7 @@ export class ProductService {
   }
   calcolo():Observable<Number>{
     return this.apiService.makeRequest('get',`${API.cart}${API.caolco}`)
+    
 
   }
 }

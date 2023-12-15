@@ -2,7 +2,9 @@
 cestino azzurro */
 
 .compra{
-    text-align: center;
+    text-align: end;
+
+
 }
 .compra button {
     
@@ -108,4 +110,7 @@ cestino azzurro */
     50%,100% {
       bottom: 100%;
     }
+  }
+  .totale{
+    
   }

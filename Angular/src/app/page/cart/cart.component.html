@@ -2,9 +2,10 @@
     <app-product-in-cart [product]="prodotto" *ngFor="let prodotto of productInCart "></app-product-in-cart>
 </div>
 
+
 <div class="compra" *ngIf="this.isLog() && this.isNotNull()">
 
-    <span>{{calcolo}}</span>
+    <p class="totale">Subtotal: {{calcolo}}</p>
 
     <button (click)="buyAllCart()">
         <span></span>
