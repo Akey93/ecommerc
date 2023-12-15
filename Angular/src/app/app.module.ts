@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ProfileComponent } from './page/profile/profile.component';
 import { AddProductComponent } from './page/add-product/add-product.component';
-import { ProductComponent } from './productGroup/product/product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductInCartComponent } from './productGroup/product-in-cart/product-in-cart.component';
 import { MatInputModule } from '@angular/material/input';
@@ -23,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './bar/sidebar/sidebar.component';
 import { PersonalProductComponent } from './productGroup/personal-product/personal-product.component';
+import { ProductComponent } from './productGroup/product/product.component';
 
 
 @NgModule({

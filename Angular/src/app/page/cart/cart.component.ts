@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductInCart } from '../../dTypes';
 import { ProductService } from '../../productGroup/productService/product.service';
-import { data } from 'jquery';
 
 @Component({
   selector: 'app-cart',
@@ -11,6 +10,7 @@ import { data } from 'jquery';
 export class CartComponent implements OnInit {
 
   productInCart: ProductInCart[] = []
+  calcolo: Number| null =null;
   constructor(private productService: ProductService) { }
   isLog(): boolean {
     return localStorage.getItem('userRole') != null;
@@ -19,7 +19,9 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getCart().subscribe((data) => {
       this.productInCart = data;
-      console.log("questo è il productInCart: ", this.productInCart)
+    })
+    this.productService.calcolo().subscribe((data)=>{
+      this.calcolo=data;
     })
   }
   isNotNull(): boolean {

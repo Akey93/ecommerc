@@ -1,39 +1,55 @@
-.carta{
-    font-size: x-small;
-    min-height: 10em;
-    min-width: 30em;
-    height: auto;
-    width:fit-content;
+form{
+    display: flex;
+    justify-content: space-around;
+}
+.carta {
+    color: aqua;
+    font-size: small;
     background: linear-gradient(#006992, #2E1760);
     text-align: center;
-    margin-top: 10%;
- 
-    border-radius: 2em;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+
 }
-.change{
-    border:none;
+
+.change {
+    border: none;
     background: transparent;
     cursor: pointer;
     position: relative;
     top: 0.5em;
+    left: -0.5em;
 }
+.change:hover {
+    background: #03e9f4;
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
+}
+
 .quantitaN {
     min-width: 2.5em;
     background: transparent;
-    width:fit-content;
+    width: fit-content;
     max-width: 3em;
-    
+
 }
-.quantita{
+
+.quantita {
     min-width: 5em;
     max-width: 7em;
-    width:fit-content;
+    width: fit-content;
+
 }
+
 .cestino {
     background: transparent;
     border: none;
     cursor: pointer;
+    position: relative;
+    top:0.4em;
 
 }
 
@@ -47,7 +63,11 @@
         0 0 100px #03e9f4;
 
 }
-.cestinoP{
+.bottoni{
     position: relative;
-    top:-0.8em;
+    top:2em;
+    
+}
+button{
+    color:white
 }

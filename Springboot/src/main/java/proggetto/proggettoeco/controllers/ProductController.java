@@ -113,6 +113,16 @@ public class ProductController {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/url")
+    public ResponseEntity getMethodName(@RequestParam("codeProduct") String codeProduct) {
+        try {
+            return new ResponseEntity(productService.getProductUrl(codeProduct),HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
+        }
+    }
+    
     
     
     

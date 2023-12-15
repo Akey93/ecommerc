@@ -40,6 +40,8 @@ public class Product {
     @Column(name="type", nullable = false)
     private String type;
 
+    private String url;
+
     @ManyToOne
     @JoinColumn(name="user_admin")
     @OnDelete(action = OnDeleteAction.CASCADE)

@@ -1,6 +1,10 @@
+.prezzo{
+    container-type: size;
+    position: relative;
+    top: 3em;
+}
 .carta {
-
-    width: 400px;
+    color: white;
     padding: 40px;
     transform: translate(0%, 0%);
     background: linear-gradient(#006992, #2E1760);
@@ -8,8 +12,6 @@
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     opacity: 0.9;
-    margin: 5%;
-    margin-left: 5em;
 }
 
 .compra {
@@ -42,6 +44,7 @@
 }
 
 .cestino {
+    color: white;
     background: transparent;
     border: none;
     cursor: pointer;

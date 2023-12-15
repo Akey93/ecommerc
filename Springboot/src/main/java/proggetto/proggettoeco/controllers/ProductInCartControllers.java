@@ -18,6 +18,8 @@ import lombok.RequiredArgsConstructor;
 import proggetto.proggettoeco.UTILITY.dto.AddProductInCartRequest;
 import proggetto.proggettoeco.services.JwtService;
 import proggetto.proggettoeco.services.ProductInCartService;
+import proggetto.proggettoeco.entities.User;
+import proggetto.proggettoeco.repositories.UserRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -26,6 +28,7 @@ import proggetto.proggettoeco.services.ProductInCartService;
 
 public class ProductInCartControllers {
 
+    final UserRepository userRepository;
     final ProductInCartService productInCartService;
     final JwtService jwtService;
 
@@ -102,6 +105,15 @@ public class ProductInCartControllers {
             return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);
         }
 
+    }
+    @GetMapping("/calcolo")
+    public ResponseEntity calcolo(HttpServletRequest request){
+        try {
+            User u=userRepository.findByEmail(jwtService.extractUserEmailByRequest(request));
+            return new ResponseEntity(productInCartService.calcolo(u),HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

@@ -1,1 +1,3 @@
-<div *ngIf="isAdmin()"><app-personal-product [product]="prodotto" *ngFor="let prodotto of prodotti"></app-personal-product></div>
+<div *ngIf="isAdmin()" class="cart">
+    <app-personal-product [product]="prodotto" *ngFor="let prodotto of prodotti"></app-personal-product>
+</div>

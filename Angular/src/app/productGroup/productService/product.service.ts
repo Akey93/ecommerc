@@ -12,6 +12,7 @@ export class ProductService {
 
   constructor(private apiService: ApiService, private router: Router) {
 
+    /* Prodotto */
   }
   addProduct(product: Product): Observable<Product> {
     return this.apiService.makeRequest('post', `${API.product}${API.addP}`, product)
@@ -27,10 +28,17 @@ export class ProductService {
     let data = { codeProduct: dato }
     return this.apiService.makeRequest('delete', `${API.product}${API.rimuoviProdotto}`, null, data);
   }
+  modify(product:Product):Observable<Product>{
+    return this.apiService.makeRequest('put',`${API.product}${API.modify}`,product)
+  }
 
 
 
 
+
+
+
+  /* Prodotto nel carrello */
 
   addToCart(data: DtoProduct): Observable<ProductInCart[]> {
 
@@ -47,10 +55,14 @@ export class ProductService {
   buyAll(): any {
     return this.apiService.makeRequest('post', `${API.cart}${API.buyAll}`)
   }
-  quantity(data: DtoProduct): Observable<Number> {
-    return this.apiService.makeRequest('put', `${API.cart}${API.modifyQP}`, data);
+  quantityPIC(data: DtoProduct): Observable<Number> {
+    return this.apiService.makeRequest('put', `${API.cart}${API.modifyQPIC}`, data);
   }
   getCart(): Observable<ProductInCart[]> {
     return this.apiService.makeRequest('get', `${API.cart}${API.getAllC}`)
+  }
+  calcolo():Observable<Number>{
+    return this.apiService.makeRequest('get',`${API.cart}${API.caolco}`)
+
   }
 }

@@ -40,6 +40,9 @@ public class ProductService {
         return a&&c;
     }
     public ProductDTO addProduct(Product p, String email)throws RuntimeException{
+         if(p.getUrl()==null){
+            p.setUrl("ciao");
+        }
 
         boolean c=productRepository.existsByCodeProduct(p.getCodeProduct().toUpperCase());
         
@@ -58,6 +61,9 @@ public class ProductService {
         }throw new ProductAlreadyExistException();
     }
     public Product setQuantityProduct(Product p)throws RuntimeException{
+        if(p.getUrl()==null){
+            p.setUrl("ciao");
+        }
         Product d = productRepository.findByCodeProduct(p.getCodeProduct().toUpperCase());
         if(d!=null){
             boolean a= p.getNameProduct().toUpperCase().equals(d.getNameProduct());
@@ -71,13 +77,16 @@ public class ProductService {
         }throw new CodeProductNotCorrectException();
     }
     public Product modifyProduct(Product p)throws RuntimeException{
+         if(p.getUrl()==null){
+            p.setUrl("ciao");
+        }
         Product d = productRepository.findByCodeProduct(p.getCodeProduct().toUpperCase());
         if(d!=null){
             if(controll(p)){
                 d.setNameProduct(p.getNameProduct().toUpperCase());
                 d.setPrice(p.getPrice());
+                d.setType(p.getType().toUpperCase());
                 d.setQuantity(p.getQuantity());
-                d.setType(d.getType().toUpperCase());
                 return productRepository.save(d); 
             }throw new PriceAndQuantityCannotBeLessZeroException();
         }throw new CodeProductNotCorrectException();
@@ -117,7 +126,14 @@ public class ProductService {
             throw new UserDoesNotExistException();
         }
         List<Product> listaProdotti= productRepository.findByUser(user);
-        return listaProdotti;
-        
+        return listaProdotti;  
+    }
+    public String getProductUrl(String codeProduct)throws RuntimeException{
+        Product product= productRepository.findByCodeProduct(codeProduct);
+        if(product==null){
+            throw new ProductDoesNotExistException();
+        }
+         String url= product.getUrl();
+         return url;
     }
 }

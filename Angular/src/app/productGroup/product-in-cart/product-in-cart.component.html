@@ -1,9 +1,8 @@
 <div class="carte">
     <div class="carta">
-
+        <span class="Prezzo">{{(product.product.price*product.quantity) | number:'1.2-2'}}€</span>
         <p class="nome">Nome: {{product.product.nameProduct}}</p>
         <p class="price">Prezzo: {{product.product.price}}€</p>
-
         <p class="quantita">Quantità disponibile: {{product.product.quantity}}
             <input (change)="quantitaP(quantity)" [formControl]="quantity" class="quantitaN" type="number" min=1
                 max="{{product.product.quantity}}">

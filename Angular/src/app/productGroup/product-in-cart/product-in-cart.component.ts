@@ -47,17 +47,13 @@ export class ProductInCartComponent implements  OnInit{
     })
   }
   quantitaP(data:FormControl):void{
-    console.log(data)
     let cartProduct:DtoProduct={
       quantity: 0,
         codeProduct:''
       }
       cartProduct.codeProduct=this.product.product.codeProduct;
-
     cartProduct.quantity=data.value;
-
-    this.productService.quantity(cartProduct).subscribe((dato)=>{
-
+    this.productService.quantityPIC(cartProduct).subscribe((dato)=>{
     })
   }
 }

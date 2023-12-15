@@ -1,7 +1,7 @@
 import { Component, Input} from '@angular/core';
 import { DtoProduct, Product } from '../../dTypes';
 import { FormControl, Validators } from '@angular/forms';
-import { ProductService } from '../productService/product.service';
+import { ProductService } from '../../productGroup/productService/product.service';
 
 
 @Component({
