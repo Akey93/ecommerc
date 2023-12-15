@@ -7,7 +7,8 @@ import { CartComponent } from './page/cart/cart.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { authGuard, authGuard2 } from './authGuard/auth.guard';
 import { AddProductComponent } from './page/add-product/add-product.component';
-import { ProductComponent } from './page/product/product.component';
+import { ProductComponent } from './productGroup/product/product.component';
+
 
 const routes: Routes = [
   {path:'', component:HomeComponent},

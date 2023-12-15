@@ -1,5 +1,6 @@
 package proggetto.proggettoeco.services;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,7 +147,8 @@ public class ProductInCartService {
             totale = totale + prezzoTP;
         }
         if (totale < user.getMoney()) {
-            return totale;
+            DecimalFormat df = new DecimalFormat("#.##");
+            return Double.parseDouble(df.format(totale));
         }
         throw new InsufficientMoneyException();
     }
