@@ -12,6 +12,7 @@ export class CartComponent implements OnInit {
 
   productInCart: ProductInCart[] = []
   calcolo!: Number;
+
   constructor(private productService: ProductService) { }
   isLog(): boolean {
     return localStorage.getItem('userRole') != null;
@@ -23,7 +24,6 @@ export class CartComponent implements OnInit {
     })
     this.productService.calcolo().subscribe((data)=>{
       this.calcolo=data;
-      
     })
   }
   isNotNull(): boolean {

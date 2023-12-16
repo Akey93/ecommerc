@@ -1,3 +1,8 @@
+<div class="div-search">
+    <form >
+        <input type="text" name="search" placeholder="Search.." class="search">
+      </form>
+    </div>
 <div class="cart">
     <app-product-in-cart [product]="prodotto" *ngFor="let prodotto of productInCart "></app-product-in-cart>
 </div>
@@ -5,7 +10,8 @@
 
 <div class="compra" *ngIf="this.isLog() && this.isNotNull()">
 
-    <p class="totale">Subtotal:{{calcolo.toString()| number:'1.2-2'}}</p>
+   <p class="totale">Subtotal: {{ calcolo !== null && calcolo !== undefined ? (calcolo.toString() | currency:'EUR') : '' }}</p>
+
 
     <button (click)="buyAllCart()">
         <span></span>

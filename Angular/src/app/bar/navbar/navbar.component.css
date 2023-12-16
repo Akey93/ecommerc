@@ -44,12 +44,6 @@
     align-self: center;
     font-size: 2em;
 }
-.search{
-    border-radius: 2em;
-    flex-grow:1;
-    text-align: center;
-    align-self: center;
-}
 ul {
     list-style-type: none;
     display: flex;
@@ -82,30 +76,7 @@ button {
     color :#03e9f4;
     transition: .5s 
 }
-.search {
-    margin-top: 11%;
-    margin-bottom: 11%;
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('../../img/searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
 
-.search:focus {
-    outline: none; 
-    border-color: #03e9f4;
-    width: 300px;
-    
-
-}
 
 
 

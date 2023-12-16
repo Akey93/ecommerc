@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './bar/sidebar/sidebar.component';
 import { PersonalProductComponent } from './productGroup/personal-product/personal-product.component';
 import { ProductComponent } from './productGroup/product/product.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ProductComponent } from './productGroup/product/product.component';
     ProductComponent,
     ProductInCartComponent,
     SidebarComponent,
-    PersonalProductComponent
+    PersonalProductComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/productGroup/productService/product.serv
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  searchName: string = '';
   constructor(private productService:ProductService){
 
   }
@@ -16,6 +17,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit():void{
     this.productService.getProductByEmail().subscribe((data)=>{
       this.prodotti=data;
+      console.log(this.prodotti);
     })
 
   }
