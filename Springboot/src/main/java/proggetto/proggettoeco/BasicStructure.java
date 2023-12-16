@@ -48,18 +48,18 @@ public class BasicStructure {
 			userService.registerAdmin(new RegisterRequest("Gerry", "Germano", "dalla@ge.rm", "qwerty", "via Verdi"));
 			userService.registerUser(new RegisterRequest("Giacomo", "Filiberti", "fili@ge.rm", "qwerty", "via Rossi"));
 			Product p1 = new Product(null, "mozzarella01", "ZIZZONA", 19.99, 43, "alimentare",
-					"https://images.app.goo.gl/NZXbKSxZ5ZtTi7gv7",
+					"https://images.app.goo.gl/NZXbKSxZ5ZtTi7gv7","mozzarella da 1kg",
 					userRepository.findByEmail("dalla@ge.rm"));
 			Product p2 = new Product(null, "Pan di stelle", "BISCOTTI01", 4.99, 85, "alimentare",
-					"https://images.app.goo.gl/VSKEbxJvQLSkscB69",
+					"https://images.app.goo.gl/VSKEbxJvQLSkscB69","Pacco di dolci fatti con polvere stellare raccolta accuratamente da fate e gnomi",
 					userRepository.findByEmail("dalla@ge.rm"));
 			Product p3 = new Product(null, "tonno rio mare", "TONNO01", 3.99, 56, "alimentare",
-					"https://images.app.goo.gl/wbNo5XMe8g1GpvV66",
+					"https://images.app.goo.gl/wbNo5XMe8g1GpvV66","tonno",
 					userRepository.findByEmail("dalla@ge.rm"));
 			Product p4 = new Product(null, "filadelfia", "MOZZARELLA", 2.99, 44, "alimentare",
-					"https://images.app.goo.gl/wDZSqTuynNCmRMbP6",
+					"https://images.app.goo.gl/wDZSqTuynNCmRMbP6","formaggio formaggioso",
 					userRepository.findByEmail("dalla@ge.rm"));
-			Product p5 = new Product(null, "birillo", "birillo15", 3.99, 67, "sport",
+			Product p5 = new Product(null, "birillo", "birillo15", 3.99, 67, "sport","birillo birilloso",
 					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg",
 					userRepository.findByEmail("dalla@ge.rm"));
 

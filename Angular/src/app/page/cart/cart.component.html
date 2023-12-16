@@ -5,7 +5,7 @@
 
 <div class="compra" *ngIf="this.isLog() && this.isNotNull()">
 
-    <p class="totale">Subtotal: {{calcolo}}</p>
+    <p class="totale">Subtotal:{{calcolo.toString()| number:'1.2-2'}}</p>
 
     <button (click)="buyAllCart()">
         <span></span>

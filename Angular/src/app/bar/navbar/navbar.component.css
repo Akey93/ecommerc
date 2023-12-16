@@ -1,4 +1,11 @@
 
+.data{
+    color:white;
+    position: relative;
+    left: -10%;;
+    top: 2em;
+}
+
 .position {
     position: sticky;
     top:0px;

@@ -115,9 +115,17 @@ public class ProductController {
     }
 
     @GetMapping("/url")
-    public ResponseEntity getMethodName(@RequestParam("codeProduct") String codeProduct) {
+    public ResponseEntity getProductUrl(@RequestParam("codeProduct") String codeProduct) {
         try {
             return new ResponseEntity(productService.getProductUrl(codeProduct),HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping("/descrizione")
+    public ResponseEntity getProductDescription(@RequestParam("codeProduct") String codeProduct){
+        try {
+            return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
         }

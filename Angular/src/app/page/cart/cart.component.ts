@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductInCart } from '../../dTypes';
 import { ProductService } from '../../productGroup/productService/product.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { ProductService } from '../../productGroup/productService/product.servic
 export class CartComponent implements OnInit {
 
   productInCart: ProductInCart[] = []
-  calcolo: Number| null =null;
+  calcolo!: Number;
   constructor(private productService: ProductService) { }
   isLog(): boolean {
     return localStorage.getItem('userRole') != null;
@@ -22,6 +23,7 @@ export class CartComponent implements OnInit {
     })
     this.productService.calcolo().subscribe((data)=>{
       this.calcolo=data;
+      
     })
   }
   isNotNull(): boolean {
