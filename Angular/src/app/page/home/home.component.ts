@@ -11,6 +11,7 @@ import { ProductService } from '../../productGroup/productService/product.servic
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  searchName:String='';
   constructor(private productService:ProductService ){
 
   }

@@ -8,7 +8,7 @@ import { of } from 'rxjs';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit{
 
   productInCart: ProductInCart[] = []
   calcolo!: Number;
@@ -24,10 +24,10 @@ export class CartComponent implements OnInit {
     })
     this.productService.calcolo().subscribe((data)=>{
       this.calcolo=data;
+
     })
-  }
-  isNotNull(): boolean {
-    return this.productInCart.length > 1;
+    
+
   }
   buyAllCart(): void {
     this.productService.buyAll().subscribe(() => {

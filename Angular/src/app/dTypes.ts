@@ -3,14 +3,16 @@ export interface Product{
     codeProduct:string,
     price:number,
     quantity:number,
-    type:string
+    type:string,
+    url:String,
+    descrizione:String,
 }
 export interface ProductInCart{
     product:Product,
-    quantity:number
+    quantity:number,
 }
 export interface DtoProduct{
-    codeProduct:string
+    codeProduct:string,
     quantity:number,
 }
 export interface LoginRequest{

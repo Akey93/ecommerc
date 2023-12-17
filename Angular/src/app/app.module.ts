@@ -40,7 +40,7 @@ import { SearchPipe } from './pipe/search.pipe';
     ProductInCartComponent,
     SidebarComponent,
     PersonalProductComponent,
-    SearchPipe
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

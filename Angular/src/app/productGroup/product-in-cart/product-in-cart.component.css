@@ -1,9 +1,18 @@
+.group{
+    margin-left: 15%;
+}
+.group2{
+    margin-top: 30%;
+}
 .prezzo{
     container-type: size;
-    position: relative;
-    top: 3em;
+    text-align: center;
+    
 }
 .carta {
+    justify-content: normal;
+    display: flex;
+    max-width: 95%;
     color: white;
     padding: 40px;
     transform: translate(0%, 0%);

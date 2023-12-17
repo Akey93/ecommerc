@@ -48,19 +48,19 @@ public class BasicStructure {
 			userService.registerAdmin(new RegisterRequest("Gerry", "Germano", "dalla@ge.rm", "qwerty", "via Verdi"));
 			userService.registerUser(new RegisterRequest("Giacomo", "Filiberti", "fili@ge.rm", "qwerty", "via Rossi"));
 			Product p1 = new Product(null, "mozzarella01", "ZIZZONA", 19.99, 43, "alimentare",
-					"https://images.app.goo.gl/NZXbKSxZ5ZtTi7gv7","mozzarella da 1kg",
+					"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsdmStO0Av5PeBK_nHsx9jPPoxGaCTFB8Ygb5LkMZAw69ay7Kr9syaxO6GiATPvWZ4XfE&usqp=CAU","mozzarella da 1kg",
 					userRepository.findByEmail("dalla@ge.rm"));
 			Product p2 = new Product(null, "Pan di stelle", "BISCOTTI01", 4.99, 85, "alimentare",
-					"https://images.app.goo.gl/VSKEbxJvQLSkscB69","Pacco di dolci fatti con polvere stellare raccolta accuratamente da fate e gnomi",
+					"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6juHK7uiCdcSEAgIoXNSBl7av_FskhssrmsnkfLfrUtdcyY8m4CGaIrGrnzfCPAAhKgU&usqp=CAU","Pacco di dolci fatti con polvere stellare raccolta accuratamente da fate e gnomi",
 					userRepository.findByEmail("dalla@ge.rm"));
 			Product p3 = new Product(null, "tonno rio mare", "TONNO01", 3.99, 56, "alimentare",
-					"https://images.app.goo.gl/wbNo5XMe8g1GpvV66","tonno",
+					"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnjHEefeyd2sMaMXawrhBPpEJKpsXGeL9lhdgkQgBMwbTUt4jyfvapeP8rC-GB9petgKY&usqp=CAU","tonno",
 					userRepository.findByEmail("dalla@ge.rm"));
 			Product p4 = new Product(null, "filadelfia", "MOZZARELLA", 2.99, 44, "alimentare",
-					"https://images.app.goo.gl/wDZSqTuynNCmRMbP6","formaggio formaggioso",
+					"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsyb1GmQmzUvKVQEZTYkOWHRTe0cYnFAnYTlJKJhPMNsWP8zj4toGf_3M15rhwOVu4kHA&usqp=CAU","formaggio formaggioso",
 					userRepository.findByEmail("dalla@ge.rm"));
-			Product p5 = new Product(null, "birillo", "birillo15", 3.99, 67, "sport","birillo birilloso",
-					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg",
+			Product p5 = new Product(null, "birillo", "birillo15", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
 					userRepository.findByEmail("dalla@ge.rm"));
 
 			productService.addProduct(p4, "dalla@ge.rm");

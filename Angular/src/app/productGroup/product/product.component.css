@@ -1,23 +1,62 @@
 .carta{
-    background-color: rgb(237, 191, 122);
-    inline-size: fit-content;
-    border-radius: 0.5em;
-    color:grey;
-    display: flex;
-    flex-direction: column;
-    height: 15em;
-    justify-content: space-around;
-    margin: 2em;
-  
+    max-width: 95%;
+    color: white;
+    padding: 40px;
+    transform: translate(0%, 0%);
+    background: linear-gradient(#006992, #2E1760);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    opacity: 0.9;
+    margin-top: 5%;
 }
 .carta:hover{
     color: black;
-    background-color: rgb(243, 177, 90);
-    transition: 0.5s;
+    background: linear-gradient(white,black);
+    transition: 0.4s;
 }
 .quantitaN{
     width: 2em;
     border-radius: 2em;
-    background-color: rgb(116, 58, 58);
+    background-color: rgb(58, 113, 116);
 
 }
+.aggiungi button {
+    background-color: #03e9f4;
+    position: relative;
+    left: 1%;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  
+  }
+  
+  .aggiungi button:hover {
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+      0 0 25px #03e9f4,
+      0 0 50px #03e9f4,
+      0 0 100px #03e9f4;
+  }
+  
+  .aggiungi button span {
+    position: absolute;
+    display: block;
+  }
+  .img{
+    min-width: 150px;
+    min-height: 150px;
+    max-width: 300px;
+    max-height: 300px;
+  }
+  

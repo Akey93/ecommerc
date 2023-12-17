@@ -19,6 +19,8 @@ public class ProductDTO {
     private String type;
     private int quantity;
     private double priceProduct;
+    private String url;
+    private String descrizione;
 
     public ProductDTO(Product p){
 
@@ -26,6 +28,8 @@ public class ProductDTO {
         this.type=p.getType();
         this.quantity=p.getQuantity();
         this.priceProduct=p.getPrice();
+        this.url=p.getUrl();
+        this.descrizione=p.getDescrizione();
     
     }
     

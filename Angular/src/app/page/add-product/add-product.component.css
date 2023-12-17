@@ -5,10 +5,11 @@ div{
 fieldset{
   background: linear-gradient(#006992, #2E1760);
   text-align: center;
-  margin-top: 10%;
+  margin-top: 5%;
   inline-size: fit-content;
   border-radius: 2em;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  
 }
 .my-button{
   position: relative;

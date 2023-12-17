@@ -5,3 +5,32 @@ div{
     display: flex;
     flex-wrap: wrap;
 }
+.search {
+    position: relative;
+    left: 45%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../../img/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    transition: 0.4s;
+  }
+  
+  .search:focus {
+    position: relative;
+    left:40%;
+    outline: none;
+    border-color: #03e9f4;
+    width: 300px;
+  
+  
+  }

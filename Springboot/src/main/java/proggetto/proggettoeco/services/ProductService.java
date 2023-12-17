@@ -41,8 +41,12 @@ public class ProductService {
     }
     public ProductDTO addProduct(Product p, String email)throws RuntimeException{
          if(p.getUrl()==null){
-            p.setUrl("ciao");
+            p.setUrl("");
         }
+        if(p.getDescrizione()==null){
+            p.setDescrizione("Nessuna Descrizione");
+        }
+        System.out.println(p.getUrl());;
 
         boolean c=productRepository.existsByCodeProduct(p.getCodeProduct().toUpperCase());
         
@@ -61,9 +65,6 @@ public class ProductService {
         }throw new ProductAlreadyExistException();
     }
     public Product setQuantityProduct(Product p)throws RuntimeException{
-        if(p.getUrl()==null){
-            p.setUrl("ciao");
-        }
         Product d = productRepository.findByCodeProduct(p.getCodeProduct().toUpperCase());
         if(d!=null){
             boolean a= p.getNameProduct().toUpperCase().equals(d.getNameProduct());
@@ -77,12 +78,11 @@ public class ProductService {
         }throw new CodeProductNotCorrectException();
     }
     public Product modifyProduct(Product p)throws RuntimeException{
-         if(p.getUrl()==null){
-            p.setUrl("ciao");
-        }
         Product d = productRepository.findByCodeProduct(p.getCodeProduct().toUpperCase());
         if(d!=null){
             if(controll(p)){
+                d.setDescrizione(p.getDescrizione());
+                d.setUrl(p.getUrl());
                 d.setNameProduct(p.getNameProduct().toUpperCase());
                 d.setPrice(p.getPrice());
                 d.setType(p.getType().toUpperCase());

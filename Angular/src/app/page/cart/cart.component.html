@@ -1,23 +1,19 @@
-<div class="div-search">
-    <form >
-        <input type="text" name="search" placeholder="Search.." class="search">
-      </form>
+<div class="sup">
+    <div class="cart">
+        <app-product-in-cart [product]="prodotto" *ngFor="let prodotto of productInCart  "></app-product-in-cart>
     </div>
-<div class="cart">
-    <app-product-in-cart [product]="prodotto" *ngFor="let prodotto of productInCart "></app-product-in-cart>
-</div>
 
 
-<div class="compra" *ngIf="this.isLog() && this.isNotNull()">
+    <div class="sideBar">
+        <div class="compra" *ngIf="this.isLog()">
+            <p class="totale">Subtotal: {{ calcolo !== null && calcolo !== undefined ? (calcolo.toString() |
+                currency:'EUR')
+                : '' }}</p>
 
-   <p class="totale">Subtotal: {{ calcolo !== null && calcolo !== undefined ? (calcolo.toString() | currency:'EUR') : '' }}</p>
+            <div class="button-container">
+                <button (click)="buyAllCart()" class="button before" id="before" type="button">Buy All Cart!!</button>
+            </div>
 
-
-    <button (click)="buyAllCart()">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Buy All!!
-    </button>
+        </div>
+    </div>
 </div>

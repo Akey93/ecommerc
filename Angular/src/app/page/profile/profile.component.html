@@ -1,8 +1,9 @@
 <div class="div-search">
-    <form >
+    <form>
         <input type="text" name="search" placeholder="Search.." class="search" [(ngModel)]="searchName">
-      </form>
-    </div>
+    </form>
+</div>
 <div *ngIf="isAdmin()" class="cart">
-    <app-personal-product [product]="prodotto" *ngFor="let prodotto of prodotti | search:searchName"></app-personal-product>
+    <app-personal-product [product]="prodotto"
+        *ngFor="let prodotto of prodotti | search:searchName"></app-personal-product>
 </div>

@@ -1,16 +1,26 @@
 <div class="carte">
     <div class="carta">
-        <span class="Prezzo">{{(product.product.price*product.quantity) | number:'1.2-2'}}€</span>
-        <p class="nome">Nome: {{product.product.nameProduct}}</p>
-        <p class="price">Prezzo: {{product.product.price}}€</p>
-        <p class="quantita">Quantità disponibile: {{product.product.quantity}}
-            <input (change)="quantitaP(quantity)" [formControl]="quantity" class="quantitaN" type="number" min=1
-                max="{{product.product.quantity}}">
-        </p>
-        <span>
-            <button class="compra" (click)="compra(quantity)">Compra!</button>
-        
-            <button class="cestino" (click)="delete()"><mat-icon>delete</mat-icon></button>
-        </span>
+        <div>
+            <img src="{{product.product.url}}" alt="" width="300" height="200">
+        </div>
+        <div class="group">
+            <div class="group1">
+                <p class="nome">Nome: {{product.product.nameProduct}}</p>
+                <p class="price">Prezzo: {{product.product.price}}€</p>
+                <p class="quantita">Quantità disponibile: {{product.product.quantity}}
+                    <input (change)="quantitaP(quantity)" [formControl]="quantity" class="quantitaN" type="number" min=1
+                        max="{{product.product.quantity}}">
+                </p>
+            </div>
+            <div class="group2">
+                <p class="prezzo">Prezzo totale Prodotto: {{(product.product.price*product.quantity) | number:'1.2-2'}}€
+                </p>
+                <p>
+                    <button class="compra" (click)="compra(quantity)">Compra!</button>
+
+                    <button class="cestino" (click)="delete()"><mat-icon>delete</mat-icon></button>
+                </p>
+            </div>
+
+        </div>
     </div>
-</div>

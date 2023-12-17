@@ -13,7 +13,6 @@ export class SearchPipe implements PipeTransform {
           prodotti.push(prodotto);
         }
       }
-    
     return prodotti;
   }
 

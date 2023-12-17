@@ -7,13 +7,13 @@
     </div>
     <div class="routerLink">
         <ul>
-            <li ><a title="home" routerLink=""><button><mat-icon>home</mat-icon></button></a></li>
-            <li *ngIf="! this.isLog()"><a title="registrazione" routerLink="signup"><button><mat-icon>person_add</mat-icon></button></a></li>
-            <li *ngIf="! this.isLog()"><a title="login" routerLink="login"><button><mat-icon>person</mat-icon></button></a></li>
-            <li *ngIf=" this.isLog()"><a title="carrello" routerLink="cart"><button><mat-icon>shopping_cart</mat-icon></button></a></li>
-            <li *ngIf="this.isAdmin()"><a title="addProduct" routerLink="add-product"><button><mat-icon>note_add</mat-icon></button></a></li>
-            <li *ngIf="this.isLog()"><a title="profile" routerLink="profile"><button><mat-icon>person</mat-icon></button></a></li>
-            <li *ngIf="this.isLog()"><a title="logout" routerLink=""><button (click)="logout()"><mat-icon>power_settings_new</mat-icon></button></a></li>
+            <li ><a class="button-container" title="home" routerLink=""><button class="button link"><mat-icon>home</mat-icon></button></a></li>
+            <li *ngIf="! this.isLog()"><a class="button-container" title="registrazione" routerLink="signup"><button class="button link"><mat-icon>person_add</mat-icon></button></a></li>
+            <li *ngIf="! this.isLog()"><a class="button-container" title="login" routerLink="login"><button class="button link"><mat-icon>person</mat-icon></button></a></li>
+            <li *ngIf=" this.isLog()"><a class="button-container" title="carrello" routerLink="cart"><button class="button link"><mat-icon>shopping_cart</mat-icon></button></a></li>
+            <li *ngIf="this.isAdmin()"><a class="button-container" title="addProduct" routerLink="add-product"><button class="button link"><mat-icon>note_add</mat-icon></button></a></li>
+            <li *ngIf="this.isLog()"><a class="button-container" title="profile" routerLink="profile"><button class="button link"><mat-icon>person</mat-icon></button></a></li>
+            <li *ngIf="this.isLog()"><a class="button-container" title="logout" routerLink="" ><button (click)="logout()" class="button link"><mat-icon>power_settings_new</mat-icon></button></a></li>
         </ul>
     </div>
 </nav>
