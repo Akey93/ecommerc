@@ -3,12 +3,19 @@ form{
     justify-content: space-around;
 }
 .carta {
+    border-radius: 2em;
     color: aqua;
     font-size: small;
     background: linear-gradient(#006992, #2E1760);
     text-align: center;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    
 
+}
+.carta:hover{
+    
+    background: linear-gradient(#992600,#601D99 );
+    transition: 0.4s;
 }
 
 .change {
@@ -34,6 +41,7 @@ form{
     background: transparent;
     width: fit-content;
     max-width: 3em;
+    max-inline-size: fit-content;
 
 }
 
@@ -64,10 +72,18 @@ form{
 
 }
 .bottoni{
-    position: relative;
-    top:2em;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     
 }
 button{
     color:white
+}
+.spanB{
+    display: inline-table;
+    flex-shrink: 0;
+}
+div{
+    overflow: hidden; 
 }

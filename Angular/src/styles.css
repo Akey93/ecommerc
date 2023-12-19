@@ -8,11 +8,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 } */
 .login-box {
     position: absolute;
-    top: 52%;
-    left: 50%;
+    top: 13%;
+    left: 34%;
     width: 400px;
     padding: 40px;
-    transform: translate(-50%, -50%);
     background: linear-gradient(#006992, #2E1760);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,0.6);
@@ -72,7 +71,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    margin-top: 10px;
     letter-spacing: 4px;
     cursor: pointer;
   }
@@ -169,5 +168,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .mdc-text-field--filled:not(.mdc-text-field--disabled){
     background: transparent !important;
   }
-  
+  .mat-mdc-form-field-subscript-wrapper{
+    caret-color: transparent;
+  }
   

@@ -1,13 +1,13 @@
 <div class="carta">
     <div>
-        <img src="{{product.url}}" class="img">
+        <img src="{{product.url}}" class="img" width="200" height="200">
     </div>
     <div>
-        <p class="nome">Nome: {{product.nameProduct}}</p>
-        <p class="price">Prezzo: {{product.price}}€</p>
+        <p class="nome"><b >Nome : </b> {{product.nameProduct}}</p>
+        <p class="price"><b>Prezzo : </b>{{product.price}}€</p>
     </div>
     
-    <p class="quantita">Quantità disponibile: {{product.quantity}}
+    <p class="quantita"><b >Quantità disponibile : </b>{{product.quantity}}
          <input [formControl]="quantity"  class="quantitaN"  type="number" min=1  max="{{product.quantity}}" ></p>
         <div class="aggiungi">
             <button  (click)="cartP(quantity)">

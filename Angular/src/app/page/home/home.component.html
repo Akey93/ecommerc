@@ -1,9 +1,9 @@
 <div class="div-search">
     <form>
-        <input type="text" name="search" placeholder="Search.." class="search" [(ngModel)]="searchName">
+        <input type="text" name="search" placeholder="Cerca.." class="search" [(ngModel)]="searchName">
     </form>
 </div>
 <div class="carteProdotto">
 
-    <app-product  [product]="prodotto" *ngFor="let prodotto of prodotti |search:searchName" ></app-product>
+    <app-product class="prod" [product]="prodotto" *ngFor="let prodotto of prodotti |search:searchName" ></app-product>
 </div>

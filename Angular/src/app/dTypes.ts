@@ -4,8 +4,15 @@ export interface Product{
     price:number,
     quantity:number,
     type:string,
-    url:String,
-    descrizione:String,
+    url:string,
+    descrizione:string,
+}
+export interface User{
+    firstName:string,
+    surname:string,
+    email:string,
+    money:number,
+    indirizzo:string,
 }
 export interface ProductInCart{
     product:Product,

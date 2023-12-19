@@ -1,6 +1,9 @@
 div{
     color:red;
 }
+.prod{
+  margin: 0.25%;
+}
 .carteProdotto{
     display: flex;
     flex-wrap: wrap;
@@ -23,6 +26,7 @@ div{
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     transition: 0.4s;
+    caret-color: transparent;
   }
   
   .search:focus {

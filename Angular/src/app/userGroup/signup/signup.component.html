@@ -1,27 +1,28 @@
 <div class="login-box">
-    <h2>Registrazione</h2>
-    <form [formGroup]="sellerSignUp" (ngSubmit)="signup()">
-      <div class="user-box">
-        <input type="text" formControlName="firstName">
-        <label>Nome</label>
-      </div>
-      <div class="user-box">
-        <input type="text" formControlName="surname">
-        <label>Cognome</label>
-      </div>
-      <div class="user-box">
-        <input type="password" formControlName="password">
-        <label>Password</label>
-      </div>
-      <div class="user-box">
-        <input type="email" formControlName="email">
-        <label>Email</label>
-      </div>
-      <div class="user-box">
-        <input type="text" formControlName="indirizzo">
-        <label>indirizzo</label>
-      </div>
-  
+  <h2>Registrazione</h2>
+  <form [formGroup]="sellerSignUp" (ngSubmit)="signup()">
+    <div class="user-box">
+      <input type="text" formControlName="firstName">
+      <label>Nome</label>
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="surname">
+      <label>Cognome</label>
+    </div>
+    <div class="user-box">
+      <input type="password" formControlName="password">
+      <label>Password</label>
+    </div>
+    <div class="user-box">
+      <input type="email" formControlName="email">
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="indirizzo">
+      <label>indirizzo</label>
+    </div>
+
+    <div class="fin">
       <button type="submit">
         <span></span>
         <span></span>
@@ -29,5 +30,9 @@
         <span></span>
         Sign up!
       </button>
-    </form>
-  </div>
+      <h4> Se sei già registrato
+        <a routerLink="/login">Clicca qui!</a>
+      </h4>
+    </div>
+  </form>
+</div>

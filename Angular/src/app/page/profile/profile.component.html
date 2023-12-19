@@ -1,9 +1,21 @@
-<div class="div-search">
-    <form>
-        <input type="text" name="search" placeholder="Search.." class="search" [(ngModel)]="searchName">
+
+<div class="div-search" *ngIf="isAdmin()" >
+    <form >
+        <input type="text" name="search" placeholder="Cerca.." class="search" [(ngModel)]="searchName">
     </form>
 </div>
-<div *ngIf="isAdmin()" class="cart">
-    <app-personal-product [product]="prodotto"
+<div class="div-cart" *ngIf="isAdmin()" >
+    <app-personal-product class="cart" [product]="prodotto"
         *ngFor="let prodotto of prodotti | search:searchName"></app-personal-product>
+</div>
+<div>
+    <!-- <form [formGroup]="userForm">
+        <div>
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input type="text" matInput value="{{user?.firstName}}">
+            </mat-form-field>
+        </div>
+    </form> -->
+
 </div>

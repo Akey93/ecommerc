@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ProductInCart } from '../../dTypes';
 import { ProductService } from '../../productGroup/productService/product.service';
-import { of } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -24,10 +23,7 @@ export class CartComponent implements OnInit{
     })
     this.productService.calcolo().subscribe((data)=>{
       this.calcolo=data;
-
     })
-    
-
   }
   buyAllCart(): void {
     this.productService.buyAll().subscribe(() => {

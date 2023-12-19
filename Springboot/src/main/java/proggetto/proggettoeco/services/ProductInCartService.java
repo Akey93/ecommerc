@@ -3,8 +3,12 @@ package proggetto.proggettoeco.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Pageable;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import proggetto.proggettoeco.UTILITY.exceptions.InsufficientMoneyException;
@@ -126,7 +130,11 @@ public class ProductInCartService {
 
     public List<ProductInCart> getCart(String email) throws RuntimeException {
         User user = userRepository.findByEmail(email.toLowerCase());
-        return user.getCart();
+        user.getCart();
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("id"));
+
+        Page<ProductInCart> lPic = productInCartRepository.findAllByUser(pageable, user);
+        return lPic.getContent();
     }
 
     public void getCartDelete(String email) throws RuntimeException {

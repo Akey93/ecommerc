@@ -8,6 +8,7 @@ export const API={
     add:'/addUser',
     authority:'/verificaAuthority',
     login:'/login',
+    getUserM:'/findUserM',
 
 
     /* Product */

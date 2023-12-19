@@ -59,7 +59,6 @@ export class ApiService {
     else if (type.toLocaleLowerCase() == "post") {
       return this.http.post(url, body, options)
     }
-
     return this.http.get(url, options);
 
 

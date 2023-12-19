@@ -1,19 +1,21 @@
-<div class="carte">
-    <div class="carta">
+  <div class="carta">
         <div>
-            <img src="{{product.product.url}}" alt="" width="300" height="200">
+            <img src="{{product.product.url}}" width="300" height="200">
         </div>
         <div class="group">
             <div class="group1">
-                <p class="nome">Nome: {{product.product.nameProduct}}</p>
-                <p class="price">Prezzo: {{product.product.price}}€</p>
-                <p class="quantita">Quantità disponibile: {{product.product.quantity}}
+                <p class="nome"><b>Nome : </b> {{product.product.nameProduct}}</p>
+                <p class="price"><b>Prezzo : </b> {{product.product.price}}€</p>
+                <p class="quantita"><b>Quantità disponibile : </b> {{product.product.quantity}}
                     <input (change)="quantitaP(quantity)" [formControl]="quantity" class="quantitaN" type="number" min=1
                         max="{{product.product.quantity}}">
                 </p>
             </div>
             <div class="group2">
-                <p class="prezzo">Prezzo totale Prodotto: {{(product.product.price*product.quantity) | number:'1.2-2'}}€
+                <p><b>Descrizione : </b> {{product.product.descrizione}}</p>
+            </div>
+            <div class="group3">
+                <p class="prezzo"><b>Prezzo totale Prodotto : </b> {{(product.product.price*product.quantity) | number:'1.2-2'}}€
                 </p>
                 <p>
                     <button class="compra" (click)="compra(quantity)">Compra!</button>

@@ -1,26 +1,35 @@
 .group{
-    margin-left: 15%;
-}
-.group2{
-    margin-top: 30%;
-}
-.prezzo{
-    container-type: size;
-    text-align: center;
+    display: table-column;
     
 }
+.group2{
+    min-width: 425px; ;  
+}
+
+.group3{
+    text-align: end;
+    place-self: end;
+}
+
 .carta {
-    justify-content: normal;
+    justify-content: space-evenly;
     display: flex;
-    max-width: 95%;
+    flex-wrap: nowrap;
     color: white;
-    padding: 40px;
+    padding: 20px;
     transform: translate(0%, 0%);
     background: linear-gradient(#006992, #2E1760);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
+    border-radius: 50px;
     opacity: 0.9;
+    
+    
+}
+.carta:hover{
+    color: black;
+    background: linear-gradient(#992600,#601D99 );
+    transition: 0.4s;
 }
 
 .compra {
@@ -83,5 +92,6 @@ span {
 .quantitaN {
     width: 2.5em;
     background: transparent;
+    color:#03e9f4;
     
 }

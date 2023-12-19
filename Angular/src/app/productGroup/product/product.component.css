@@ -1,5 +1,5 @@
 .carta{
-    max-width: 95%;
+    width: 295px;
     color: white;
     padding: 40px;
     transform: translate(0%, 0%);
@@ -12,15 +12,16 @@
 }
 .carta:hover{
     color: black;
-    background: linear-gradient(white,black);
+    background: linear-gradient(#992600,#601D99 );
     transition: 0.4s;
 }
 .quantitaN{
     width: 2em;
     border-radius: 2em;
     background-color: rgb(58, 113, 116);
-
+    color:#03e9f4;
 }
+
 .aggiungi button {
     background-color: #03e9f4;
     position: relative;

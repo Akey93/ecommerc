@@ -23,6 +23,7 @@ import proggetto.proggettoeco.UTILITY.objects.AuthenticationRequest;
 import proggetto.proggettoeco.UTILITY.objects.ModifyRequest;
 import proggetto.proggettoeco.UTILITY.objects.RegisterRequest;
 import proggetto.proggettoeco.entities.User;
+import proggetto.proggettoeco.services.JwtService;
 import proggetto.proggettoeco.services.UserService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,7 +32,7 @@ import proggetto.proggettoeco.services.UserService;
 @RequiredArgsConstructor
 
 public class UserController {
-
+    final JwtService jwtService;
     final UserService userService;
 
     @PostMapping("/addUser")
@@ -109,6 +110,16 @@ public class UserController {
     @GetMapping("/findUser")
     public ResponseEntity findUser(@RequestParam("email")String email){
         try {
+            return new ResponseEntity(userService.findUser(email),HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
+        }
+    }
+    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
+    @GetMapping("/findUserM")
+    public ResponseEntity findUserM(HttpServletRequest request){
+        try {
+            String email = jwtService.extractUserEmailByRequest(request);
             return new ResponseEntity(userService.findUser(email),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);

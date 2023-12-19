@@ -19,14 +19,20 @@ import { ProductInCartComponent } from './productGroup/product-in-cart/product-i
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { SidebarComponent } from './bar/sidebar/sidebar.component';
 import { PersonalProductComponent } from './productGroup/personal-product/personal-product.component';
 import { ProductComponent } from './productGroup/product/product.component';
 import { SearchPipe } from './pipe/search.pipe';
+import { LOCALE_ID} from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeIt from '@angular/common/locales/it';
+
+registerLocaleData(localeIt);
 
 
 @NgModule({
+  
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -41,6 +47,7 @@ import { SearchPipe } from './pipe/search.pipe';
     SidebarComponent,
     PersonalProductComponent,
     SearchPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -54,11 +61,12 @@ import { SearchPipe } from './pipe/search.pipe';
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
-     MatButtonModule,
+    MatButtonModule,
+
 
 
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'it-IT' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

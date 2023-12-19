@@ -46,7 +46,6 @@ public class ProductService {
         if(p.getDescrizione()==null){
             p.setDescrizione("Nessuna Descrizione");
         }
-        System.out.println(p.getUrl());;
 
         boolean c=productRepository.existsByCodeProduct(p.getCodeProduct().toUpperCase());
         
@@ -54,7 +53,8 @@ public class ProductService {
         if(!c){
             if(controll(p)){
                 p.setCodeProduct(p.getCodeProduct().toUpperCase().strip());
-                
+                p.setUrl(p.getUrl());
+                p.setDescrizione(p.getDescrizione());
                 p.setNameProduct(p.getNameProduct().toUpperCase().strip());
                 p.setType(p.getType().toUpperCase().strip());
                 p.setUser(u);

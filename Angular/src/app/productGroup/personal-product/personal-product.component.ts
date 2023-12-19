@@ -22,6 +22,7 @@ export class PersonalProductComponent implements OnInit, OnChanges{
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService, private cdRef: ChangeDetectorRef) {
     this.productForm = this.formBuilder.group({
+      url:[],
       nameProduct: ['', [Validators.required, Validators.pattern("^[a-zA-Z-' ]{4,}$")]],
       codeProduct:['valorePredefinito'],
       price: ['', [Validators.required, Validators.min(0.01)]],
@@ -36,6 +37,7 @@ export class PersonalProductComponent implements OnInit, OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['product'] && this.product) {
       this.productForm.patchValue({
+        url:this.product.url,
         nameProduct: this.product.nameProduct,
         codeProduct: this.product.codeProduct,
         price: this.product.price,
