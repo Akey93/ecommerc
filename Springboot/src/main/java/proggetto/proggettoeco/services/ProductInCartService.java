@@ -132,6 +132,7 @@ public class ProductInCartService {
         User user = userRepository.findByEmail(email.toLowerCase());
         user.getCart();
         Pageable pageable = PageRequest.of(0, 10, Sort.by("id"));
+        /* Sort value = Sort.by("id"); */
 
         Page<ProductInCart> lPic = productInCartRepository.findAllByUser(pageable, user);
         return lPic.getContent();

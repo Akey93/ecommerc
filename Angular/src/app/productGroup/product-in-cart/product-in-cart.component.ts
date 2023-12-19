@@ -54,7 +54,6 @@ export class ProductInCartComponent implements OnInit {
     cartProduct.codeProduct = this.product.product.codeProduct;
     cartProduct.quantity = data.value;
     this.productService.quantityPIC(cartProduct).subscribe((dato) => {
-      location.reload();
     })
   }
 }

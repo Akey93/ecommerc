@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import proggetto.proggettoeco.entities.Product;
@@ -17,6 +18,7 @@ public interface ProductInCartRepository extends JpaRepository<ProductInCart,Lon
     ProductInCart findByUserAndProduct (User user, Product product);
     List<User> findUsersByProduct (Product product);
     Page<ProductInCart> findAllByUser (Pageable pageable, User user);
+    List<ProductInCart> findAllByUser (User user, Sort value);
     
     
 }

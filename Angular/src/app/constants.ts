@@ -18,6 +18,7 @@ export const API={
     rimuoviProdotto:'/removeProduct',
     modifyQ:'/setQuantityProduct',
     modify:'/modify',
+    getAllPP:'/productPage',
 
 
 

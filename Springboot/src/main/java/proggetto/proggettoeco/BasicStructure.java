@@ -59,7 +59,40 @@ public class BasicStructure {
 			Product p4 = new Product(null, "filadelfia", "MOZZARELLA", 2.99, 44, "alimentare",
 					"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsyb1GmQmzUvKVQEZTYkOWHRTe0cYnFAnYTlJKJhPMNsWP8zj4toGf_3M15rhwOVu4kHA&usqp=CAU","formaggio formaggioso",
 					userRepository.findByEmail("dalla@ge.rm"));
-			Product p5 = new Product(null, "birillo", "birillo15", 3.99, 67, "sport",
+			Product p5 = new Product(null, "birillo", "birillo151", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p6 = new Product(null, "birillo", "birillo125", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p7 = new Product(null, "birillo", "birillo135", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p8 = new Product(null, "birillo", "birillo145", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p9 = new Product(null, "birillo", "birillo1125", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p10 = new Product(null, "birillo", "birillo11235", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p11 = new Product(null, "birillo", "birillo1521", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p12= new Product(null, "birillo", "birillo121315", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p13= new Product(null, "birillo", "birillo12325", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p14= new Product(null, "birillo", "birillo13245", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p15= new Product(null, "birillo", "birillo15324", 3.99, 67, "sport",
+					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
+					userRepository.findByEmail("dalla@ge.rm"));
+			Product p16= new Product(null, "birillo", "birillo15234", 3.99, 67, "sport",
 					"https://www.bindigiochi.it/media/catalog/product/cache/b4bbcee0edb64a94c08f0a61e165bd23/b/i/birilli-bambini.jpg","birillo birilloso",
 					userRepository.findByEmail("dalla@ge.rm"));
 
@@ -68,10 +101,21 @@ public class BasicStructure {
 			productService.addProduct(p2, "dalla@ge.rm");
 			productService.addProduct(p3, "dalla@ge.rm");
 			productService.addProduct(p5, "dalla@ge.rm");
-
+			productService.addProduct(p6, "dalla@ge.rm");
+			productService.addProduct(p7, "dalla@ge.rm");
+			productService.addProduct(p8, "dalla@ge.rm");
+			productService.addProduct(p9, "dalla@ge.rm");
+			productService.addProduct(p10, "dalla@ge.rm");
+			productService.addProduct(p11, "dalla@ge.rm");
+			productService.addProduct(p12, "dalla@ge.rm");
+			productService.addProduct(p13, "dalla@ge.rm");
+			productService.addProduct(p14, "dalla@ge.rm");
+			productService.addProduct(p15, "dalla@ge.rm");
+			productService.addProduct(p16, "dalla@ge.rm");
+			
 			AddProductInCartRequest r1 = new AddProductInCartRequest("BISCOTTI01", 5, "fili@ge.rm");
 			AddProductInCartRequest r2 = new AddProductInCartRequest("TONNO01", 5, "fili@ge.rm");
-			AddProductInCartRequest r3 = new AddProductInCartRequest("Birillo15", 10, "fili@ge.rm");
+			AddProductInCartRequest r3 = new AddProductInCartRequest("birillo151", 10, "fili@ge.rm");
 
 			productInCartService.addProductToCartService(r1);
 			productInCartService.addProductToCartService(r2);

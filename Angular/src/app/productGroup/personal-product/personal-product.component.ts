@@ -29,8 +29,6 @@ export class PersonalProductComponent implements OnInit, OnChanges{
       quantity: ['', [Validators.required, Validators.min(1)]],
       type:['',[Validators.required]]
     });
-
-  console.log(this.productForm.get('codeProduct')?.value)
   
 
   }

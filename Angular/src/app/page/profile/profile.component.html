@@ -8,14 +8,38 @@
     <app-personal-product class="cart" [product]="prodotto"
         *ngFor="let prodotto of prodotti | search:searchName"></app-personal-product>
 </div>
+
 <div>
-    <!-- <form [formGroup]="userForm">
-        <div>
-            <mat-form-field>
+    <form [formGroup]="userForm">
+        <div class="scheda">
+            <mat-form-field [ngClass]="{'invalid-field':userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched}">
                 <mat-label>Nome</mat-label>
-                <input type="text" matInput value="{{user?.firstName}}">
+                <input type="text" matInput value="{{user?.firstName}}" formControlName="firstName">
+                <mat-error *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">Minimo 2 lettere</mat-error>
+            </mat-form-field>
+            <mat-form-field [ngClass]="{'invalid-field':userForm.get('surname')?.invalid && userForm.get('surname')?.touched}">
+                <mat-label>Cognome</mat-label>
+                <input type="text" formControlName="surname" matInput value="{{user?.surname}}">
+                <mat-error *ngIf="userForm.get('surname')?.invalid && userForm.get('surname')?.touched">Minimo 2 lettere</mat-error>
+            </mat-form-field>
+            <mat-form-field [ngClass]="{'invalid-field':userForm.get('email')?.invalid && userForm.get('email')?.touched}">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="email" value="{{user?.email}}">
+                <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">l'email inserita non è valida</mat-error>
+            </mat-form-field>
+            <mat-form-field [ngClass]="{'invalid-field':userForm.get('idirizzo')?.invalid && userForm.get('indirizzo')?.touched}">
+                <mat-label>Indirizzo</mat-label>
+                <input type="text" matInput value="{{user?.indirizzo}}" formControlName="indirizzo">
+                <mat-error *ngIf="userForm.get('indirizzo')?.invalid && userForm.get('indirizzo')?.touched">inserisci un indirizzo valido</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field [ngClass]="{'invalid-field':userForm.get('money')?.invalid && userForm.get('money')?.touched}">
+                <mat-label>€</mat-label>
+                <input type="number" value="{{user?.money}}" matInput formControlName="money">
+                <mat-error *ngIf="userForm.get('money')?.invalid && userForm.get('money')?.touched">Non puoi andare sotto 0</mat-error>
             </mat-form-field>
         </div>
-    </form> -->
+
+    </form>
 
 </div>

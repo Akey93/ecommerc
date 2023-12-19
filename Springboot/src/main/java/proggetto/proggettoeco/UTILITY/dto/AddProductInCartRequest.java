@@ -1,8 +1,6 @@
 package proggetto.proggettoeco.UTILITY.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 @AllArgsConstructor
 @Data
 

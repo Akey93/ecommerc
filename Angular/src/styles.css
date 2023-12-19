@@ -171,4 +171,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .mat-mdc-form-field-subscript-wrapper{
     caret-color: transparent;
   }
+  .mat-mdc-paginator-container{
+    justify-content: center!important;
+    
+
+  }
+  .mat-mdc-paginator-range-label{
+    color:transparent;
+  }
   

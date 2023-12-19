@@ -27,6 +27,8 @@ import { SearchPipe } from './pipe/search.pipe';
 import { LOCALE_ID} from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 registerLocaleData(localeIt);
 
@@ -62,6 +64,7 @@ registerLocaleData(localeIt);
     MatIconModule,
     MatSelectModule,
     MatButtonModule,
+    MatPaginatorModule,
 
 
 

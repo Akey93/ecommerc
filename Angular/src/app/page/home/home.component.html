@@ -7,3 +7,14 @@
 
     <app-product class="prod" [product]="prodotto" *ngFor="let prodotto of prodotti |search:searchName" ></app-product>
 </div>
+<mat-paginator 
+  [length]="100"
+  [pageSize]="10"
+  [pageIndex]="pageIndex"
+  
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  [showFirstLastButtons]="true"
+  (page)="paginaCambiata($event)"
+  [hidePageSize]="true"
+  [disabled]="false"><span>{{pageIndex+1}}</span>
+</mat-paginator>

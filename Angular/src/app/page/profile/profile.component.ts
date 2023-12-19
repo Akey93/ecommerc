@@ -19,6 +19,11 @@ export class ProfileComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     })
+    this.userService.getUserM().subscribe((data) => {
+      this.user = data;
+    })
+    
+    
     
   }
 
@@ -28,9 +33,8 @@ export class ProfileComponent implements OnInit {
     this.productService.getProductByEmail().subscribe((data) => {
       this.prodotti = data;
     })
-    this.userService.getUserM().subscribe((data) => {
-      this.user = data;
-    })
+  
+   
    
 
   }

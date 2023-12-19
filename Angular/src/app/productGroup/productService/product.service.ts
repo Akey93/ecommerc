@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../../apiService/api.service';
 import { Router } from '@angular/router';
 import { API } from '../../constants';
-import { DtoProduct, Product, ProductInCart } from '../../dTypes';
+import { DtoProduct, Page, PageDTO,Product, ProductInCart } from '../../dTypes';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,8 +18,9 @@ export class ProductService {
     return this.apiService.makeRequest('post', `${API.product}${API.addP}`, product)
 
   }
-  getAllProduct(): Observable<Product[]> {
-    return this.apiService.makeRequest('get', `${API.product}${API.getAllP}`)
+  getAllProductP(data:PageDTO): Observable<Page<Product>>{
+    
+    return this.apiService.makeRequest('put', `${API.product}${API.getAllPP}`,data)
   }
   getProductByEmail(): Observable<Product[]> {
     return this.apiService.makeRequest('get', `${API.product}${API.getUserProduct}`)
@@ -30,6 +31,9 @@ export class ProductService {
   }
   modify(product:Product):Observable<Product>{
     return this.apiService.makeRequest('put',`${API.product}${API.modify}`,product)
+  }
+  getAllProduct(): Observable<Product[]> {
+    return this.apiService.makeRequest('get', `${API.product}${API.getAllP}`)
   }
 
 

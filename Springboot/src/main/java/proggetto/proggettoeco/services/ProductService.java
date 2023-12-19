@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import proggetto.proggettoeco.UTILITY.dto.PageDTO;
 import proggetto.proggettoeco.UTILITY.dto.ProductDTO;
 import proggetto.proggettoeco.UTILITY.exceptions.CodeProductNotCorrectException;
 import proggetto.proggettoeco.UTILITY.exceptions.PriceAndQuantityCannotBeLessZeroException;
@@ -104,7 +105,9 @@ public class ProductService {
             return p;
         }throw new ProductDoesNotExistException();
     }
-    public Page<Product> getAllPage(int nPage, int dPage){
+    public Page<Product> getAllPage(PageDTO pageDTO){
+        int nPage= pageDTO.getNPage();
+        int dPage=pageDTO.getDPage();
         PageRequest pageable = PageRequest.of(nPage,dPage);
         Page<Product> products = productRepository.findAll(pageable);
         return products;

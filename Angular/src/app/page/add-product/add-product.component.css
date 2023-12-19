@@ -4,11 +4,69 @@ div {
   align-items: center;
 }
 
-.lettere {
+ul {
   display: flex;
+  padding: inherit;
+}
+li{
+  
 }
 ul li{
   list-style: none;
+  color: #03e9f4;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 5px;
+  filter: blur(1px);
+  caret-color: transparent;
+}
+ ul:hover li  {
+  
+  animation: animate 2s linear forwards;
+
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+    opacity: 1;
+    filter: blur(1px);
+  }
+  50%{
+    color: black;
+    transform: rotate(22,5deg) translateY(-50px);
+    opacity: 0.5;
+    filter:blur(10px)
+  }
+  100% {
+    color: black;
+    transform: rotate(45deg) translateY(-100px);
+    opacity: 0;
+    filter: blur(20px);
+  }
+}
+ul li:nth-child(1){
+ animation-delay: 0.4s;
+}
+ul li:nth-child(2){
+ animation-delay: 0.8s;
+}
+ul li:nth-child(3){
+ animation-delay: 1.2s;
+}
+ul li:nth-child(4){
+ animation-delay: 1.6s;
+}
+ul li:nth-child(5){
+ animation-delay: 2.0s;
+}
+ul li:nth-child(6){
+ animation-delay: 2.4s;
+}
+ul li:nth-child(7){
+ animation-delay: 2.8s;
+}
+ul li:nth-child(8){
+ animation-delay: 3.2s;
 }
 
 .text {

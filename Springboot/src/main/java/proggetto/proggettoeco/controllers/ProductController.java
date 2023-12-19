@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import proggetto.proggettoeco.UTILITY.dto.PageDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -77,11 +78,11 @@ public class ProductController {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
         }
     }
-    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
-    @GetMapping("/productPage")
-    public ResponseEntity getProductPage(@RequestParam("nPage") int nPage, @RequestParam ("dPage") int dPage){
+
+    @PutMapping("/productPage")
+    public ResponseEntity getProductPage(@RequestBody PageDTO pageDTO){
         try {
-            return new ResponseEntity(productService.getAllPage(nPage, dPage),HttpStatus.OK);
+            return new ResponseEntity(productService.getAllPage(pageDTO),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);
         }
@@ -98,6 +99,7 @@ public class ProductController {
     @GetMapping("/getAllProduct")
     public ResponseEntity getAllProduct(){
         try {
+            
             return new ResponseEntity(productService.getAllProduct(),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);

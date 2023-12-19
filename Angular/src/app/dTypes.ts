@@ -1,3 +1,7 @@
+export interface Page<Product>{
+    content: Product[];
+  totalElements: number;
+}
 export interface Product{
     nameProduct:string,
     codeProduct:string,
@@ -25,6 +29,11 @@ export interface DtoProduct{
 export interface LoginRequest{
     email:string,
     password:string,
+}
+
+export interface PageDTO{
+    nPage:number,
+    dPage:number,
 }
 
 
