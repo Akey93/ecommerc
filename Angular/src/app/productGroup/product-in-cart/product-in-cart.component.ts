@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DtoProduct, ProductInCart } from '../../dTypes';
 import { ProductService } from '../productService/product.service';
 import { FormControl, Validators } from '@angular/forms';
@@ -10,7 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ProductInCartComponent implements OnInit {
 
-
+  @Output() calcolo = new EventEmitter<Number>
   @Input({ required: true }) product!: ProductInCart;
   quantity = new FormControl(1, { validators: [Validators.required] })
 
@@ -54,6 +54,10 @@ export class ProductInCartComponent implements OnInit {
     cartProduct.codeProduct = this.product.product.codeProduct;
     cartProduct.quantity = data.value;
     this.productService.quantityPIC(cartProduct).subscribe((dato) => {
+      this.productService.calcolo().subscribe((data) => {
+        this.calcolo.emit(data)
+        console.log(data)
+      });
     })
   }
 }

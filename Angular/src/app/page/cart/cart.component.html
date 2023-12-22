@@ -1,12 +1,12 @@
 <div class="sup">
     <div class="cart">
-        <app-product-in-cart class="prod" [product]="prodotto" *ngFor="let prodotto of productInCart  "></app-product-in-cart>
+        <app-product-in-cart (calcolo)="ricalcolo($event)" class="prod" [product]="prodotto" *ngFor="let prodotto of productInCart  "></app-product-in-cart>
     </div>
 
 
     <div class="sideBar">
         <div class="compra" *ngIf="this.isLog()">
-            <p class="totale">Totale: {{ calcolo !== null && calcolo !== undefined ? (calcolo.toString() |
+            <p class="totale" >Totale:{{ calcolo!== null && calcolo !== undefined ? (calcolo.toString() |
                 currency:'EUR')
                 : '' }}</p>
 

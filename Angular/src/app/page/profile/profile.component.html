@@ -1,45 +1,91 @@
-
-<div class="div-search" *ngIf="isAdmin()" >
-    <form >
-        <input type="text" name="search" placeholder="Cerca.." class="search" [(ngModel)]="searchName">
-    </form>
+<div><button class="cybr-btn">
+        Cyber<span aria-hidden>_</span>
+        <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
+        <span aria-hidden class="cybr-btn__tag">R25</span>
+    </button>
+    <br>
+    <p></p>
+    <button class="cybr-btn">
+        Buttons<span aria-hidden>_</span>
+        <span aria-hidden class="cybr-btn__glitch">Buttons_</span>
+        <span aria-hidden class="cybr-btn__tag">R25</span>
+    </button>
 </div>
-<div class="div-cart" *ngIf="isAdmin()" >
-    <app-personal-product class="cart" [product]="prodotto"
-        *ngFor="let prodotto of prodotti | search:searchName"></app-personal-product>
+<br><br>
+<div class="ilPorcaccioDelSignore">
+
+    ciao<span aria-hidden>_</span>
+    <span aria-hidden class="loSpanDelSignore1">Ciao_</span>
+    <span aria-hidden class="loSpanDelSignore2">mammità</span>
+</div>
+<div class="ilPorcaccioDelSignore">
+
+    ciao<span aria-hidden></span>
+    <span aria-hidden class="loSpanDelSignore1">sorta</span>
+    <span aria-hidden class="loSpanDelSignore2">mammità asfasfada</span>
+</div>
+<div class="ilPorcaccioDelSignore">
+
+    ciao<span aria-hidden></span>
+    <span aria-hidden class="loSpanDelSignore1">sorta</span>
+    <span aria-hidden class="loSpanDelSignore2">mammità</span>
 </div>
 
 <div>
     <form [formGroup]="userForm">
         <div class="scheda">
-            <mat-form-field [ngClass]="{'invalid-field':userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched}">
+            <mat-form-field
+                [ngClass]="{'invalid-field':userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched}">
                 <mat-label>Nome</mat-label>
                 <input type="text" matInput value="{{user?.firstName}}" formControlName="firstName">
-                <mat-error *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">Minimo 2 lettere</mat-error>
+                <mat-error *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">Minimo 2
+                    lettere</mat-error>
             </mat-form-field>
-            <mat-form-field [ngClass]="{'invalid-field':userForm.get('surname')?.invalid && userForm.get('surname')?.touched}">
+            <mat-form-field
+                [ngClass]="{'invalid-field':userForm.get('surname')?.invalid && userForm.get('surname')?.touched}">
                 <mat-label>Cognome</mat-label>
                 <input type="text" formControlName="surname" matInput value="{{user?.surname}}">
-                <mat-error *ngIf="userForm.get('surname')?.invalid && userForm.get('surname')?.touched">Minimo 2 lettere</mat-error>
+                <mat-error *ngIf="userForm.get('surname')?.invalid && userForm.get('surname')?.touched">Minimo 2
+                    lettere</mat-error>
             </mat-form-field>
-            <mat-form-field [ngClass]="{'invalid-field':userForm.get('email')?.invalid && userForm.get('email')?.touched}">
+            <mat-form-field
+                [ngClass]="{'invalid-field':userForm.get('email')?.invalid && userForm.get('email')?.touched}">
                 <mat-label>Email</mat-label>
                 <input type="text" matInput formControlName="email" value="{{user?.email}}">
-                <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">l'email inserita non è valida</mat-error>
+                <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">l'email inserita non
+                    è valida</mat-error>
             </mat-form-field>
-            <mat-form-field [ngClass]="{'invalid-field':userForm.get('idirizzo')?.invalid && userForm.get('indirizzo')?.touched}">
+            <mat-form-field
+                [ngClass]="{'invalid-field':userForm.get('idirizzo')?.invalid && userForm.get('indirizzo')?.touched}">
                 <mat-label>Indirizzo</mat-label>
                 <input type="text" matInput value="{{user?.indirizzo}}" formControlName="indirizzo">
-                <mat-error *ngIf="userForm.get('indirizzo')?.invalid && userForm.get('indirizzo')?.touched">inserisci un indirizzo valido</mat-error>
+                <mat-error *ngIf="userForm.get('indirizzo')?.invalid && userForm.get('indirizzo')?.touched">inserisci un
+                    indirizzo valido</mat-error>
             </mat-form-field>
-            
-            <mat-form-field [ngClass]="{'invalid-field':userForm.get('money')?.invalid && userForm.get('money')?.touched}">
+
+
+        </div>
+        <div class="scheda">
+            <p>Credito disponibile : {{user?.money}}€</p>
+            <mat-form-field
+                [ngClass]="{'invalid-field':userForm.get('money')?.invalid && userForm.get('money')?.touched}">
                 <mat-label>€</mat-label>
-                <input type="number" value="{{user?.money}}" matInput formControlName="money">
-                <mat-error *ngIf="userForm.get('money')?.invalid && userForm.get('money')?.touched">Non puoi andare sotto 0</mat-error>
+                <input type="number" matInput formControlName="money">
+                <mat-error *ngIf="userForm.get('money')?.invalid && userForm.get('money')?.touched">Non puoi andare
+                    sotto 0</mat-error>
+                <button>Aggiungi </button>
+                <button>Preleva</button>
             </mat-form-field>
         </div>
-
     </form>
 
+</div>
+<div class="div-search" *ngIf="isAdmin()">
+    <form>
+        <input type="text" name="search" placeholder="Cerca.." class="search" [(ngModel)]="searchName">
+    </form>
+</div>
+<div class="div-cart" *ngIf="isAdmin()">
+    <app-personal-product class="cart" [product]="prodotto"
+        *ngFor="let prodotto of prodotti | search:searchName"></app-personal-product>
 </div>

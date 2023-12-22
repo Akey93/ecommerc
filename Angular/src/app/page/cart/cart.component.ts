@@ -25,16 +25,23 @@ export class CartComponent implements OnInit {
     this.productService.getCart().subscribe((data) => {
       this.productInCart = data;
     })
-    this.pollData()
+    /* this.pollData() */
+    this.productService.calcolo().subscribe((data) => {
+      this.calcolo = data;
+    });
 
   }
-  pollData() {
+  ricalcolo(value: Number){
+    console.log(value)
+    this.calcolo=value;
+  }
+  /* pollData() {
     interval(this.interval).subscribe(() => {
       this.productService.calcolo().subscribe((data) => {
         this.calcolo = data;
       });
     });
-  }
+  } */
   buyAllCart(): void {
     this.productService.buyAll().subscribe(() => {
       location.reload();

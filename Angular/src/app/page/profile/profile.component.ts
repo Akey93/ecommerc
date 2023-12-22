@@ -22,10 +22,20 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserM().subscribe((data) => {
       this.user = data;
     })
-    
-    
-    
+    document.addEventListener('DOMContentLoaded', () => {
+      const elemento = document.querySelector('cybr-btn');
+      if (elemento !== null) {
+        elemento.classList.add('persistente-hover');
+        // Puoi fare altre operazioni con l'elemento qui
+      }
+    });
+
+
+
+
+
   }
+
 
   prodotti: Product[] = []
   user: User | undefined;
@@ -33,9 +43,9 @@ export class ProfileComponent implements OnInit {
     this.productService.getProductByEmail().subscribe((data) => {
       this.prodotti = data;
     })
-  
-   
-   
+
+
+
 
   }
   isAdmin(): boolean {
