@@ -52,6 +52,7 @@ export class AddProductComponent implements OnInit{
       console.log(data)
     });
   }
+  
  
 
 }

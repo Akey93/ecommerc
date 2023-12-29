@@ -15,7 +15,7 @@
                 <p><b>Descrizione : </b> {{product.product.descrizione}}</p>
             </div>
             <div class="group3">
-                <p class="prezzo"><b>Prezzo totale Prodotto : </b> {{(product.product.price*product.quantity) | number:'1.2-2'}}€
+                <p class="prezzo"><b>Prezzo totale Prodotto : </b> {{(product.product.price*cartProduct.quantity) | number:'1.2-2'}}€
                 </p>
                 <p>
                     <button class="compra" (click)="compra(quantity)">Compra!</button>

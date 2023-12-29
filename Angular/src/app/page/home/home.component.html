@@ -1,11 +1,19 @@
-<div class="div-search">
-    <form>
-        <input type="text" name="search" placeholder="Cerca.." class="search" [(ngModel)]="searchName">
+<div *ngIf="picA" class="overlay">
+    <div  class="modal-content">
+        <h2>Il prodotto è stato aggiunto</h2>
+        <button  (click)="PicAO()">ok</button>
+    </div>
+</div>
+
+
+    <div class="div-search">
+        <form>
+            <input type="text" name="search" placeholder="Cerca.." class="search" [(ngModel)]="searchName">
     </form>
 </div>
 <div class="carteProdotto">
 
-    <app-product class="prod" [product]="prodotto" *ngFor="let prodotto of prodotti |search:searchName" ></app-product>
+    <app-product (PicA)="PicA($event)" class="prod" [product]="prodotto" *ngFor="let prodotto of prodotti |search:searchName" ></app-product>
 </div>
 <mat-paginator 
   [length]="100"

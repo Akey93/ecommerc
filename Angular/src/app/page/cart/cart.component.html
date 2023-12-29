@@ -6,9 +6,7 @@
 
     <div class="sideBar">
         <div class="compra" *ngIf="this.isLog()">
-            <p class="totale" >Totale:{{ calcolo!== null && calcolo !== undefined ? (calcolo.toString() |
-                currency:'EUR')
-                : '' }}</p>
+            <p class="totale" >Totale:{{ calcolo !== null && calcolo !== undefined ? (calcolo!.toString() | currency:'EUR') : calcolo }}</p>
 
             <div class="button-container">
                 <button (click)="buyAllCart()" class="button before" id="before" type="button">Compra tutti i prodotti!!</button>

@@ -1,7 +1,8 @@
-import { Component, Input} from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { DtoProduct, Product } from '../../dTypes';
 import { FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../../productGroup/productService/product.service';
+import { event } from 'jquery';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { ProductService } from '../../productGroup/productService/product.servic
 
 export class ProductComponent   {
 
-   
-  
+  @Output() PicA= new EventEmitter<boolean>;
   @Input({ required: true }) product!: Product;
+
+  picA:boolean=true;
   
 
   quantity=new FormControl(1, {validators:[Validators.required]})
@@ -37,6 +39,8 @@ export class ProductComponent   {
   
       this.productService.addToCart(dtoProduct).subscribe((dato)=>{
         console.log(dato)
+        this.PicA.emit(this.picA)
+
       })
 
     }

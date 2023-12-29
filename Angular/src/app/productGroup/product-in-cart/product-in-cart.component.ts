@@ -18,6 +18,8 @@ export class ProductInCartComponent implements OnInit {
   }
   ngOnInit(): void {
     this.quantity.setValue(this.product.quantity);
+    this.cartProduct.quantity=this.product.quantity;
+    
   }
 
 
@@ -46,14 +48,16 @@ export class ProductInCartComponent implements OnInit {
       location.reload();
     })
   }
+  cartProduct:DtoProduct={
+    quantity:0,
+    codeProduct:''
+  }
   quantitaP(data: FormControl): void {
-    let cartProduct: DtoProduct = {
-      quantity: 0,
-      codeProduct: ''
-    }
-    cartProduct.codeProduct = this.product.product.codeProduct;
-    cartProduct.quantity = data.value;
-    this.productService.quantityPIC(cartProduct).subscribe((dato) => {
+    
+    this.cartProduct.codeProduct = this.product.product.codeProduct;
+    this.cartProduct.quantity = data.value;
+    console.log()
+    this.productService.quantityPIC(this.cartProduct).subscribe((dato) => {
       this.productService.calcolo().subscribe((data) => {
         this.calcolo.emit(data)
         console.log(data)

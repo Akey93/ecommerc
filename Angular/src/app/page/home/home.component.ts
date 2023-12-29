@@ -46,7 +46,13 @@ paginaCambiata($event: PageEvent) {
     
 
   }
-  
+  picA:boolean= false;
+  PicA(value:boolean){
+    this.picA=value;
+  }
+  PicAO(){
+    this.picA=false;
+  }
   
   
 }
