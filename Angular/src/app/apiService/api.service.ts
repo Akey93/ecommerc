@@ -60,6 +60,9 @@ export class ApiService {
     else if (type.toLocaleLowerCase() == "post") {
       return this.http.post(url, body, options)
     }
+    else if (type.toLocaleLowerCase()=="put"){
+      return this.http.put(url,body,options)
+    }
     return this.http.get(url ,options);
 
 

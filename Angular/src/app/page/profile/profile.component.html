@@ -1,4 +1,4 @@
-<div><button class="cybr-btn">
+<div><!-- <button class="cybr-btn">
         Cyber<span aria-hidden>_</span>
         <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
         <span aria-hidden class="cybr-btn__tag">R25</span>
@@ -11,29 +11,11 @@
         <span aria-hidden class="cybr-btn__tag">R25</span>
     </button>
 </div>
-<br><br>
-<div class="ilPorcaccioDelSignore">
 
-    ciao<span aria-hidden>_</span>
-    <span aria-hidden class="loSpanDelSignore1">Ciao_</span>
-    <span aria-hidden class="loSpanDelSignore2">mammità</span>
-</div>
-<div class="ilPorcaccioDelSignore">
-
-    ciao<span aria-hidden></span>
-    <span aria-hidden class="loSpanDelSignore1">sorta</span>
-    <span aria-hidden class="loSpanDelSignore2">mammità asfasfada</span>
-</div>
-<div class="ilPorcaccioDelSignore">
-
-    ciao<span aria-hidden></span>
-    <span aria-hidden class="loSpanDelSignore1">sorta</span>
-    <span aria-hidden class="loSpanDelSignore2">mammità</span>
-</div>
-
-<div>
-    <form [formGroup]="userForm">
-        <div class="scheda">
+ -->
+<div class = "profilo">
+    <form [formGroup]="userForm" class="form">
+        <div class="scheda utente">
             <mat-form-field
                 [ngClass]="{'invalid-field':userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched}">
                 <mat-label>Nome</mat-label>
@@ -55,29 +37,34 @@
                 <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">l'email inserita non
                     è valida</mat-error>
             </mat-form-field>
-            <mat-form-field
+            <div class="modifica">
+                <button (click)="modifica()" [disabled]="!isFormValid">Modifica
+                </button>
+            </div>
+     <!--        <mat-form-field
                 [ngClass]="{'invalid-field':userForm.get('idirizzo')?.invalid && userForm.get('indirizzo')?.touched}">
                 <mat-label>Indirizzo</mat-label>
                 <input type="text" matInput value="{{user?.indirizzo}}" formControlName="indirizzo">
                 <mat-error *ngIf="userForm.get('indirizzo')?.invalid && userForm.get('indirizzo')?.touched">inserisci un
                     indirizzo valido</mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
 
 
         </div>
-        <div class="scheda">
+        <div class="scheda money">
             <p>Credito disponibile : {{user?.money}}€</p>
             <mat-form-field
                 [ngClass]="{'invalid-field':userForm.get('money')?.invalid && userForm.get('money')?.touched}">
                 <mat-label>€</mat-label>
-                <input type="number" matInput formControlName="money">
-                <mat-error *ngIf="userForm.get('money')?.invalid && userForm.get('money')?.touched">Non puoi andare
-                    sotto 0</mat-error>
-                <button>Aggiungi </button>
-                <button>Preleva</button>
+                <input type="number" matInput [formControl]="money"  min="1">
+                <mat-error class="errore" *ngIf="userForm.get('money')?.invalid && userForm.get('money')?.touched">Non puoi andare sotto 0 e/o mettere oltre due cifre decimali
+                    </mat-error>
+                <button (click)="ricarica()" [disabled]="!isMoneyValid">Ricarica </button>
+                <button (click)="preleva()"  [disabled]="!isMoneyValid">Preleva</button>
             </mat-form-field>
         </div>
     </form>
+    
 
 </div>
 <div class="div-search" *ngIf="isAdmin()">

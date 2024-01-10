@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.var;
 import proggetto.proggettoeco.UTILITY.dto.UserTokenDTO;
 import proggetto.proggettoeco.UTILITY.exceptions.DataNotCorrectEcxeption;
+import proggetto.proggettoeco.UTILITY.exceptions.InsufficientMoneyException;
 import proggetto.proggettoeco.UTILITY.exceptions.UserAlreadyExistException;
 import proggetto.proggettoeco.UTILITY.exceptions.UserDoesNotExistException;
 import proggetto.proggettoeco.UTILITY.objects.AuthenticationRequest;
@@ -45,9 +46,11 @@ public class UserService {
     public boolean ModifyRegex(ModifyRequest u) {
         String nome = "^[a-zA-Z\s]+$";
         String cognome = "^[a-zA-Z\s]+$";
+        String email="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         boolean a = u.getFirstName().matches(nome);
         boolean b = u.getSurname().matches(cognome);
-        return a && b;
+          boolean c = u.getEmail().matches(email);
+        return a && b && c;
     }
 
     public UserTokenDTO registerUser(RegisterRequest request) throws RuntimeException {
@@ -106,13 +109,14 @@ public class UserService {
 
     }
 
-    public UserTokenDTO modifyNS(HttpServletRequest request, ModifyRequest u) throws RuntimeException {
+    public UserTokenDTO modify(HttpServletRequest request, ModifyRequest u) throws RuntimeException {
         String email = jwtService.extractUserEmailByRequest(request).toLowerCase();
         if (email != null) {
             User p = userRepository.findByEmail(email);
             if (ModifyRegex(u)) {
                 p.setFirstName(u.getFirstName().toUpperCase().strip());
                 p.setSurname(u.getSurname().toUpperCase().strip());
+                p.setEmail(u.getEmail().toLowerCase().strip());
                 userRepository.save(p);
                 var jwtToken = jwtService.generateToken(p);
                 UserTokenDTO userTokenDTO = DTOToken(p.getEmail(), jwtToken);
@@ -205,5 +209,17 @@ public class UserService {
         User u = userRepository.findByEmail(email.toLowerCase());
         var jwtToken = jwtService.generateToken(u);
         return new AuthenticationResponse(jwtToken);
+    }
+    public double preleva(User u, double soldi)throws RuntimeException{
+        if(u.getMoney()-soldi>=0){
+            u.setMoney(u.getMoney()-soldi);
+            userRepository.save(u);
+            return u.getMoney();
+        }throw new InsufficientMoneyException();
+    }
+    public double ricarica(User u, double soldi){
+        u.setMoney(soldi+u.getMoney());
+        userRepository.save(u);      
+        return u.getMoney();
     }
 }

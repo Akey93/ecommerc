@@ -4,6 +4,7 @@ import { ApiService } from '../../apiService/api.service';
 import { Router } from '@angular/router';
 import { API } from '../../constants';
 import { LoginRequest, User } from '../../dTypes';
+import { data } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,22 @@ export class UserService {
   getUserM(): Observable<User> {
     return this.apiService.makeRequest('get', `${API.user}${API.getUserM}`)
   }
+  prelevaSoldi(dato: number): Observable<Number> {
+    console.log("si ci siamo ", dato)
+    let data = { money: dato }
+    return this.apiService.makeRequest('put', `${API.user}${API.preleva}`, null, data)
+  }
+  ricaricaSoldi(dato: number): Observable<Number> {
+    console.log("si ci siamo ", dato)
+    let data = { money: dato }
+    console.log(data)
+    return this.apiService.makeRequest('put', `${API.user}${API.ricarica}`, null, data)
+  }
+  modifica(data: User): Observable<User> {
+    return this.apiService.makeRequest('put', `${API.user}${API.modify}`,data)
+  }
 
 }
+
+
 

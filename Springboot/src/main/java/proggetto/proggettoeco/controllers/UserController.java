@@ -23,6 +23,7 @@ import proggetto.proggettoeco.UTILITY.objects.AuthenticationRequest;
 import proggetto.proggettoeco.UTILITY.objects.ModifyRequest;
 import proggetto.proggettoeco.UTILITY.objects.RegisterRequest;
 import proggetto.proggettoeco.entities.User;
+import proggetto.proggettoeco.repositories.UserRepository;
 import proggetto.proggettoeco.services.JwtService;
 import proggetto.proggettoeco.services.UserService;
 
@@ -34,6 +35,7 @@ import proggetto.proggettoeco.services.UserService;
 public class UserController {
     final JwtService jwtService;
     final UserService userService;
+    final UserRepository userRepository;
 
     @PostMapping("/addUser")
     public ResponseEntity registerUser(@RequestBody RegisterRequest request){
@@ -61,9 +63,9 @@ public class UserController {
     }
     @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     @PutMapping("/modify")
-    public ResponseEntity modifyNS(HttpServletRequest request, @RequestBody ModifyRequest u){
+    public ResponseEntity modify(HttpServletRequest request, @RequestBody ModifyRequest u){
         try {
-            return new ResponseEntity(userService.modifyNS(request, u),HttpStatus.OK);
+            return new ResponseEntity(userService.modify(request, u),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getClass().getSimpleName(),HttpStatus.BAD_REQUEST);
         }
@@ -139,5 +141,27 @@ public class UserController {
         String token = userService.token(email).getToken();
        return userService.DTOToken(email, token);
 
+    }
+    @PutMapping("/ricarica")
+    public ResponseEntity ricarica (HttpServletRequest request, @RequestParam("money")double  money){
+     try {
+       
+         User u=userRepository.findByEmail(jwtService.extractUserEmailByRequest(request).toLowerCase());
+         
+        return new ResponseEntity(userService.ricarica(u, money),HttpStatus.OK);
+     } catch (Exception e) {
+        return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.OK);
+     }
+    }
+    @PutMapping("/preleva")
+    public ResponseEntity preleva (HttpServletRequest request, @RequestParam("money") double money){
+        try {
+
+            User u=userRepository.findByEmail(jwtService.extractUserEmailByRequest(request).toLowerCase());
+            
+            return new ResponseEntity(userService.preleva(u, money),HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);
+        }
     }
 }

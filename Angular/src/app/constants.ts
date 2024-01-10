@@ -9,6 +9,8 @@ export const API={
     authority:'/verificaAuthority',
     login:'/login',
     getUserM:'/findUserM',
+    ricarica:'/ricarica',
+    preleva:'/preleva',
 
 
     /* Product */

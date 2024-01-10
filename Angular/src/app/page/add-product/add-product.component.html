@@ -3,14 +3,14 @@
     <!-- to do
     con una pipe -->
     <div class="divLettere">
-        <ul >
-            <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);" >N</li>
+        <ul>
+            <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">N</li>
             <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">U</li>
             <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">O</li>
             <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">V</li>
             <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">O</li>
         </ul>
-        <ul >
+        <ul>
             <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">P</li>
             <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">R</li>
             <li style="text-shadow: 0 0 20px rgba(0, 0, 0, 1);">O</li>
@@ -105,7 +105,8 @@
                 <textarea matInput formControlName="descrizione"></textarea>
             </mat-form-field>
             <br>
-            <button (click)="aggiungi()" class="my-button" [ngClass]="{ 'disabled-button': !isFormValid }">Aggiungi il
+            <button (click)="aggiungi()" class="my-button" [disabled]="!isFormValid"
+                [ngClass]="{ 'disabled-button': !isFormValid }">Aggiungi il
                 prodotto!</button>
         </form>
     </fieldset>

@@ -45,6 +45,10 @@ export class ProductComponent   {
 
     }
   }
+  pic:boolean=true
+  Pic(value:boolean){
+    this.pic=value
+  }
  
 
 }

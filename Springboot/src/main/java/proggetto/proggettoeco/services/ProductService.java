@@ -41,6 +41,7 @@ public class ProductService {
         return a&&c;
     }
     public ProductDTO addProduct(Product p, String email)throws RuntimeException{
+        
          if(p.getUrl()==null){
             p.setUrl("");
         }

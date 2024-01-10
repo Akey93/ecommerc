@@ -12,11 +12,11 @@ import { ProductService } from '../../productGroup/productService/product.servic
 })
 export class AddProductComponent implements OnInit{
 
-  
+  controllo:boolean=false;
 
   productForm:FormGroup;
 
-  isFormValid: boolean = true;
+  isFormValid: boolean = false;
   
 
   
@@ -50,6 +50,7 @@ export class AddProductComponent implements OnInit{
     
     this.productService.addProduct(this.productForm.value).subscribe((data)=>{
       console.log(data)
+      
     });
   }
   

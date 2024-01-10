@@ -14,5 +14,7 @@ public class ModifyRequest {
 
     private String firstName;
     private String surname;
+    private String email;
+    
     
 }

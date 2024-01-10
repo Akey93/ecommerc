@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product, User } from 'src/app/dTypes';
 import { ProductService } from 'src/app/productGroup/productService/product.service';
 import { UserService } from 'src/app/userGroup/userService/user.service';
@@ -11,41 +11,74 @@ import { UserService } from 'src/app/userGroup/userService/user.service';
 })
 export class ProfileComponent implements OnInit {
   searchName: string = '';
+  prodotti: Product[] = []
+  user: User | undefined;
+  
   userForm: FormGroup;
+  money:FormControl ;
+
+
+  isFormValid:boolean=false;
+  isMoneyValid:boolean=false;
+
+  
   constructor(private productService: ProductService, private userService: UserService, private formBuilder: FormBuilder) {
+
     this.userForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.pattern("^[a-zA-Z-' ]{2,}$")]],
       surname: ['', [Validators.required, Validators.pattern("^[a-zA-Z-' ]{2,}$")]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      
+      
     })
+    this.userForm.statusChanges.subscribe(()=>{
+      this.isFormValid=this.userForm.valid;
+    })
+  
+    const decimalPattern = /^(\d+(\.\d{1,2})?)?$/;
+
+    this.money = new FormControl(1, [Validators.required, Validators.pattern(decimalPattern)]);
     this.userService.getUserM().subscribe((data) => {
       this.user = data;
     })
-    document.addEventListener('DOMContentLoaded', () => {
-      const elemento = document.querySelector('cybr-btn');
-      if (elemento !== null) {
-        elemento.classList.add('persistente-hover');
-        // Puoi fare altre operazioni con l'elemento qui
+    this.money.statusChanges.subscribe(() => {
+      const moneyControl = this.money;
+      if (moneyControl) {
+        this.isMoneyValid = moneyControl.valid;
       }
     });
 
+  }
 
+  ricarica() {
+    console.log(this.money.value)
+    let moneyU = this.money.value
+    if (moneyU > 0) {
+      this.userService.ricaricaSoldi(moneyU).subscribe((dato) => {
+        location.reload();
+      })
+    }
 
-
-
+  }
+ 
+  preleva() {
+    console.log(this.money.value)
+    let moneyU = this.money.value
+    if (moneyU > 0) {
+      this.userService.prelevaSoldi(moneyU).subscribe((dato) => {
+        location.reload();
+      })
+    }
   }
 
 
-  prodotti: Product[] = []
-  user: User | undefined;
+
+
   ngOnInit(): void {
     this.productService.getProductByEmail().subscribe((data) => {
       this.prodotti = data;
     })
-
-
-
+    
 
   }
   isAdmin(): boolean {
@@ -53,6 +86,11 @@ export class ProfileComponent implements OnInit {
     if (role == 'ADMIN') {
       return true;
     } return false;
+  }
+  modifica():void{
+    this.userService.modifica(this.userForm.value).subscribe((data)=>{
+      console.log("ok")
+    })
   }
 
 }

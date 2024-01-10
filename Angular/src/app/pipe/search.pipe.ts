@@ -6,14 +6,17 @@ import { Product } from '../dTypes';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(value:Product[], searchName:String):Product[] {
+  transform(listaProdotti:Product[], searchName:String):Product[] {
     const prodotti: Product[] = [];
-      for (const prodotto of value) {
+
+    return listaProdotti.filter(el=>el.nameProduct.toLowerCase().includes(searchName.toLowerCase()))
+    
+      /* for (const prodotto of listaProdotti) {
         if (prodotto.nameProduct.toLowerCase().includes(searchName.toLowerCase())) {
           prodotti.push(prodotto);
         }
       }
-    return prodotti;
+    return prodotti;*/
   }
-
+ 
 }
