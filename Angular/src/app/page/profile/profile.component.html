@@ -52,7 +52,7 @@
 
         </div>
         <div class="scheda money">
-            <p>Credito disponibile : {{user?.money}}€</p>
+            <p>Credito disponibile : {{user?.money |currency:'EUR'}}</p>
             <mat-form-field
                 [ngClass]="{'invalid-field':userForm.get('money')?.invalid && userForm.get('money')?.touched}">
                 <mat-label>€</mat-label>

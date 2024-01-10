@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnChanges, OnInit} from '@angular/core';
-import { ProductInCart } from '../../dTypes';
+import { ProductInCart, User } from '../../dTypes';
 import { ProductService } from '../../productGroup/productService/product.service';
+import { UserService } from 'src/app/userGroup/userService/user.service';
 
 
 @Component({
@@ -11,15 +12,16 @@ import { ProductService } from '../../productGroup/productService/product.servic
 export class CartComponent implements OnInit {
 
 
-
+  user: User | undefined;
   productInCart: ProductInCart[] = []
   calcolo!: Number;
   interval = 100;
 
-  constructor(private productService: ProductService, private cdRef: ChangeDetectorRef) {
+  constructor(private productService: ProductService, private cdRef: ChangeDetectorRef, private userService:UserService) {
     this.productService.getCart().subscribe((data) => {
       this.productInCart = data;
     })
+    
   }
   isLog(): boolean {
     return localStorage.getItem('userRole') != null;
@@ -32,8 +34,12 @@ export class CartComponent implements OnInit {
     /* this.pollData() */
     this.productService.calcolo().subscribe((data) => {
       this.calcolo = data;
+      
 
     });
+    this.userService.getUserM().subscribe((data) => {
+      this.user = data;
+    })
 
   }
   ricalcolo(value: Number){

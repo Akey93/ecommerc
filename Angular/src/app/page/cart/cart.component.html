@@ -6,6 +6,7 @@
 
     <div class="sideBar">
         <div class="compra" *ngIf="this.isLog()">
+            <p class="conto">Sul conto hai: {{user?.money |currency:'EUR'}}</p>
             <p class="totale" >Totale:{{ calcolo !== null && calcolo !== undefined ? (calcolo!.toString() | currency:'EUR') : calcolo }}</p>
 
             <div class="button-container">
