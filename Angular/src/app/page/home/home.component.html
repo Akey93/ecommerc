@@ -13,7 +13,7 @@
 </div>
 <div class="carteProdotto">  
 
-    <app-product (PicA)="PicA($event)" class="prod" [product]="prodotto" *ngFor="let prodotto of prodotti |search:searchName" ></app-product>
+    <app-product (PicA)="PicA($event)" class="prod" [pic]="picA" [product]="prodotto" *ngFor="let prodotto of prodotti |search:searchName" ></app-product>
 </div>
 <mat-paginator 
   [length]="100"

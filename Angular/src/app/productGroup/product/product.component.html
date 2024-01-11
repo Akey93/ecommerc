@@ -10,7 +10,7 @@
     <p class="quantita"><b >Quantità disponibile : </b>{{product.quantity}}
          <input [formControl]="quantity"  class="quantitaN"  type="number" min=1  max="{{product.quantity}}" ></p>
         <div class="aggiungi">
-            <button  (click)="cartP(quantity)" >
+            <button  (click)="cartP(quantity)" [disabled]="pic">
             <span></span>
             <span></span>
             <span></span>

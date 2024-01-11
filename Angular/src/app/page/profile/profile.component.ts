@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
 
   isFormValid:boolean=false;
   isMoneyValid:boolean=false;
+ 
 
   
   constructor(private productService: ProductService, private userService: UserService, private formBuilder: FormBuilder) {
@@ -87,10 +88,15 @@ export class ProfileComponent implements OnInit {
       return true;
     } return false;
   }
+  modificaP:boolean=false;
   modifica():void{
     this.userService.modifica(this.userForm.value).subscribe((data)=>{
       console.log("ok")
+      this.modificaP=true;
     })
+  }
+  modificaPE(){
+    this.modificaP=false;
   }
 
 }

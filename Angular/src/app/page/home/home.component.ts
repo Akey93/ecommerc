@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   pageIndex = 0;
   searchName: String = '';
 
-  @Output() PicAOR= new EventEmitter<boolean>
+  
 
   constructor(private productService: ProductService) {
 

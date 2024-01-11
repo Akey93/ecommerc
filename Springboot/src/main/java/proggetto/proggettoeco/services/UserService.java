@@ -111,12 +111,14 @@ public class UserService {
 
     public UserTokenDTO modify(HttpServletRequest request, ModifyRequest u) throws RuntimeException {
         String email = jwtService.extractUserEmailByRequest(request).toLowerCase();
+        System.out.println("email del token"+email+ "\n email da modificare "+u.getEmail());
         if (email != null) {
             User p = userRepository.findByEmail(email);
             if (ModifyRegex(u)) {
                 p.setFirstName(u.getFirstName().toUpperCase().strip());
                 p.setSurname(u.getSurname().toUpperCase().strip());
                 p.setEmail(u.getEmail().toLowerCase().strip());
+                System.out.println(p.getEmail());
                 userRepository.save(p);
                 var jwtToken = jwtService.generateToken(p);
                 UserTokenDTO userTokenDTO = DTOToken(p.getEmail(), jwtToken);
