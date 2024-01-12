@@ -14,8 +14,8 @@
 
 
     <div class="modificaP" *ngIf="modificaP">
-        <div calss="secondo">
-            <p>Il Profilo è stato modificato premere Ok per andare avanti</p>
+        <div class="secondo">
+            <p style="color: red;">Il dati del profilo sono stati modificati con successo <br> premere Ok per andare avanti</p>
             <button (click)="modificaPE()"> OK!</button>
         </div>
     </div>
@@ -25,21 +25,21 @@
                 <mat-form-field
                     [ngClass]="{'invalid-field':userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched}">
                     <mat-label>Nome</mat-label>
-                    <input type="text" matInput value="{{user?.firstName}}" formControlName="firstName">
+                    <input type="text" matInput formControlName="firstName">
                     <mat-error *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">Minimo 2
                         lettere</mat-error>
                 </mat-form-field>
                 <mat-form-field
                     [ngClass]="{'invalid-field':userForm.get('surname')?.invalid && userForm.get('surname')?.touched}">
                     <mat-label>Cognome</mat-label>
-                    <input type="text" formControlName="surname" matInput value="{{user?.surname}}">
+                    <input type="text" formControlName="surname" matInput >
                     <mat-error *ngIf="userForm.get('surname')?.invalid && userForm.get('surname')?.touched">Minimo 2
                         lettere</mat-error>
                 </mat-form-field>
                 <mat-form-field
                     [ngClass]="{'invalid-field':userForm.get('email')?.invalid && userForm.get('email')?.touched}">
                     <mat-label>Email</mat-label>
-                    <input type="text" matInput formControlName="email" value="{{user?.email}}">
+                    <input type="text" matInput formControlName="email" >
                     <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">l'email inserita
                         non
                         è valida</mat-error>
@@ -60,7 +60,7 @@
 
             </div>
             <div class="scheda money">
-                <p>Credito disponibile : {{user?.money |currency:'EUR'}}</p>
+                <p>Credito disponibile : {{user.money |currency:'EUR'}}</p>
                 <mat-form-field
                     [ngClass]="{'invalid-field':userForm.get('money')?.invalid && userForm.get('money')?.touched}">
                     <mat-label>€</mat-label>

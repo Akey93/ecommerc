@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import {   ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product, User } from 'src/app/dTypes';
 import { ProductService } from 'src/app/productGroup/productService/product.service';
@@ -9,10 +9,16 @@ import { UserService } from 'src/app/userGroup/userService/user.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit{
   searchName: string = '';
   prodotti: Product[] = []
-  user: User | undefined;
+  user: User ={
+    firstName: '',
+    surname: '',
+    email: '',
+    money: 0,
+    indirizzo: ''
+  }
   
   userForm: FormGroup;
   money:FormControl ;
@@ -23,7 +29,7 @@ export class ProfileComponent implements OnInit {
  
 
   
-  constructor(private productService: ProductService, private userService: UserService, private formBuilder: FormBuilder) {
+  constructor(private productService: ProductService, private userService: UserService, private formBuilder: FormBuilder,private cdRef: ChangeDetectorRef) {
 
     this.userForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.pattern("^[a-zA-Z-' ]{2,}$")]],
@@ -41,6 +47,14 @@ export class ProfileComponent implements OnInit {
     this.money = new FormControl(1, [Validators.required, Validators.pattern(decimalPattern)]);
     this.userService.getUserM().subscribe((data) => {
       this.user = data;
+
+      this.userForm.patchValue({
+        firstName:this.user.firstName,
+        surname:this.user.surname,
+        email:this.user.email
+      })
+      this.cdRef.detectChanges();
+
     })
     this.money.statusChanges.subscribe(() => {
       const moneyControl = this.money;
@@ -80,7 +94,6 @@ export class ProfileComponent implements OnInit {
       this.prodotti = data;
     })
     
-
   }
   isAdmin(): boolean {
     let role = localStorage.getItem('userRole');
@@ -90,13 +103,13 @@ export class ProfileComponent implements OnInit {
   }
   modificaP:boolean=false;
   modifica():void{
-    this.userService.modifica(this.userForm.value).subscribe((data)=>{
-      console.log("ok")
+    this.userService.modifica(this.userForm.value)
       this.modificaP=true;
-    })
+
   }
   modificaPE(){
     this.modificaP=false;
+    location.reload();
   }
 
 }

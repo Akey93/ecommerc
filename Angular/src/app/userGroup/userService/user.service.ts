@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap } from 'rxjs';
 import { ApiService } from '../../apiService/api.service';
 import { Router } from '@angular/router';
 import { API } from '../../constants';
-import { LoginRequest, User } from '../../dTypes';
+import { LoginRequest, User, UserLoggedIn } from '../../dTypes';
 import { data } from 'jquery';
 
 @Injectable({
@@ -46,20 +46,8 @@ export class UserService {
 
     }
   }
-  logIn(data: LoginRequest): void {
-    this.apiService.makeRequest('post', `${API.user}${API.login}`, data).subscribe((response) => {
-
-      let email = response.email;
-      let token = response.token;
-      let ruolo = response.ruolo;
-
-      localStorage.setItem('userEmail', email);
-      localStorage.setItem('userToken', token);
-      localStorage.setItem('userRole', ruolo);
-
-      this.isUserLoggedIn.next(true);
-      this.router.navigate(['']);
-    })
+  logIn(data: LoginRequest):Observable<UserLoggedIn> {
+   return this.apiService.makeRequest('post', `${API.user}${API.login}`, data)
 
   }
   getUserM(): Observable<User> {
@@ -76,8 +64,25 @@ export class UserService {
     console.log(data)
     return this.apiService.makeRequest('put', `${API.user}${API.ricarica}`, null, data)
   }
-  modifica(data: User): Observable<User> {
-    return this.apiService.makeRequest('put', `${API.user}${API.modify}`,data)
+  modifica(data: User): void {
+    this.apiService.makeRequest('put', `${API.user}${API.modify}`,data).subscribe((response)=>{
+
+      let email = response.email;
+      let token = response.token;
+      let ruolo = response.ruolo;
+
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userToken', token);
+      localStorage.setItem('userRole', ruolo);
+
+      this.isUserLoggedIn.next(true);
+      
+
+     
+    })
+
+
+
   }
 
 }

@@ -11,6 +11,8 @@
       <div class="user-box">
         <input type="password"  formControlName="password">
         <label>Password</label>
+
+        <p class="error" *ngIf="dataNotCorrect">Email o Password sbagliata, riprova</p>
         
       </div >
       <button>

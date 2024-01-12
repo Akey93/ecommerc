@@ -46,4 +46,6 @@ button {
   background: transparent;
   border: none;
 }
-
+.error{
+  color:red;
+}

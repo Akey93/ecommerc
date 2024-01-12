@@ -30,6 +30,11 @@ export interface LoginRequest{
     email:string,
     password:string,
 }
+export interface UserLoggedIn{
+    email:string,
+    token:string,
+    ruolo:string
+}
 
 export interface PageDTO{
     nPage:number,
