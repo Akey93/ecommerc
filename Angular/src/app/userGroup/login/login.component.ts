@@ -14,13 +14,13 @@ export class LoginComponent implements OnInit {
 
   isUserLoggedIn = new BehaviorSubject<boolean>(false);
   loginForm: FormGroup = new FormGroup({});
-  dataNotCorrect:boolean=false;
+  dataNotCorrect: boolean = false;
 
-  constructor(private formBuilder:FormBuilder, private userService:UserService, private router: Router){
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
 
 
   }
-  
+
 
 
   ngOnInit(): void {
@@ -36,29 +36,28 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.value.password
       };
       this.userService.logIn(data).pipe(
-        catchError((error:any) => {
-          this.dataNotCorrect=true;
+        catchError((error: any) => {
+          this.dataNotCorrect = true;
           console.log(this.dataNotCorrect);
-          
+
           return new Observable<any>((observer) => {
             observer.next(false);
             observer.complete();
           });
         })
       ).subscribe((response) => {
-        if(response){
+        if (response) {
           let email = response.email;
-        let token = response.token;
-        let ruolo = response.ruolo;
-  
-        localStorage.setItem('userEmail', email);
-        localStorage.setItem('userToken', token);
-        localStorage.setItem('userRole', ruolo);
-  
-        this.isUserLoggedIn.next(true);
-        this.router.navigate(['']);
-        }else
-        {console.error('Autenticazione fallita.');}
+          let token = response.token;
+          let ruolo = response.ruolo;
+
+          localStorage.setItem('userEmail', email);
+          localStorage.setItem('userToken', token);
+          localStorage.setItem('userRole', ruolo);
+
+          this.isUserLoggedIn.next(true);
+          this.router.navigate(['']);
+        } else { console.error('Autenticazione fallita.'); }
       });
     }
   }

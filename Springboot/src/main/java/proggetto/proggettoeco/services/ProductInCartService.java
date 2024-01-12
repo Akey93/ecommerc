@@ -154,23 +154,29 @@ public class ProductInCartService {
             double prezzoTP = prezzoSP * pic.getQuantity();
             totale = totale + prezzoTP;
         }
-        if (totale < user.getMoney()) {
+      
             return totale;
-        }
-        throw new InsufficientMoneyException();
+        
+        
     }
 
     @Transactional
     public void buyAllProductInCart(String email) throws RuntimeException {
         User user = userRepository.findByEmail(email.toLowerCase());
-        calcolo(user);
-        List<ProductInCart> cartCopy = new ArrayList<>(user.getCart());
+        double totale= calcolo(user);
+        if (totale>user.getMoney()) {
+            throw new InsufficientMoneyException();
+        }
+        else{
+            List<ProductInCart> cartCopy = new ArrayList<>(user.getCart());
         for (ProductInCart pic : cartCopy) {
             String code = pic.getProduct().getCodeProduct();
             buyProductInCart(email, code, false);
         }
         getCartDelete(email);
         return;
+        }
+        
     }
 
     @Transactional
